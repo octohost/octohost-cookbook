@@ -1,0 +1,13 @@
+language: ruby
+
+rvm:
+  - 1.9.3
+  - 2.0.0
+
+install: bundle install --without=integration
+
+script: bundle exec rake test
+
+branches:
+  only:
+    - master
