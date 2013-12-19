@@ -22,12 +22,12 @@ Recipes
 
 ### octohost::default
 
-*Explain what the recipe does here*
+NOTE: This is a work in progress and isn't complete yet.
 
 Testing
 -------
 
-[![Build Status](https://travis-ci.org/darron/octohost-cookbook.png?branch=master)](https://travis-ci.org/darron/octohost-cookbook)
+[![Build Status](https://travis-ci.org/octohost/octohost-cookbook.png?branch=master)](https://travis-ci.org/octohost/octohost-cookbook)
 
 The cookbook provides the following Rake tasks for testing:
 
