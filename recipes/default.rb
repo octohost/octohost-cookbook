@@ -18,4 +18,14 @@
 # limitations under the License.
 #
 
-# Install/configure something here
+include_recipe 'docker::default'
+
+include_recipe 'redis::default'
+
+include_recipe 'nodejs::default'
+
+include_recipe 'hipache::default'
+
+include_recipe 'serf::default'
+
+include_recipe 'gitreceive::default'
