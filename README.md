@@ -1,4 +1,4 @@
-Skeleton Cookbook
+Octohost Cookbook
 =================
 
 Requirements
@@ -34,6 +34,8 @@ The cookbook provides the following Rake tasks for testing:
     rake integration                  # Alias for kitchen:all
     rake kitchen:all                  # Run all test instances
     rake kitchen:default-ubuntu-1204  # Run default-ubuntu-1204 test instance
+    rake kitchen:default-ubuntu-1304  # Run default-ubuntu-1204 test instance
+    rake kitchen:default-ubuntu-1310  # Run default-ubuntu-1204 test instance
     rake lint                         # Lint Chef cookbooks
     rake rubocop                      # Run rubocop tests
     rake spec                         # Run ChefSpec examples
