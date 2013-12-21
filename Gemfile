@@ -8,6 +8,7 @@ gem "rake"
 gem "tailor"
 gem "rubocop"
 gem "chef-taste"
+gem 'coveralls', require: false
 
 group :integration do
   gem "test-kitchen", "~> 1.0"
