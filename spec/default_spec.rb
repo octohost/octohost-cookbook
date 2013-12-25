@@ -5,6 +5,10 @@ require 'spec_helper'
 describe 'octohost::default' do
   let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe) }
 
+  it 'includes the `octobase` recipe' do
+    expect(chef_run).to include_recipe('octobase::default')
+  end
+
   it 'includes the `docker` recipe' do
     expect(chef_run).to include_recipe('docker::default')
   end

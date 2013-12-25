@@ -2,6 +2,7 @@ site :opscode
 
 metadata
 
+cookbook 'octobase', git: 'https://github.com/darron/octobase-cookbook.git'
 cookbook 'docker', git: 'https://github.com/darron/docker-cookbook.git'
 cookbook 'redis', git: 'https://github.com/darron/redis-cookbook.git'
 cookbook 'nodejs', git: 'https://github.com/darron/nodejs-cookbook.git'

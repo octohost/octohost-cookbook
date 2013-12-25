@@ -8,6 +8,7 @@ version          '0.1.0'
 recipe           'octohost::default', 'Installs/configures something'
 
 depends 'apt'
+depends 'octobase'
 depends 'docker'
 depends 'redis'
 depends 'nodejs'

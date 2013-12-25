@@ -18,6 +18,8 @@
 # limitations under the License.
 #
 
+include_recipe 'octobase::default'
+
 include_recipe 'docker::default'
 
 include_recipe 'redis::default'
