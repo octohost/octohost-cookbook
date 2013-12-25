@@ -6,23 +6,32 @@ Requirements
 
 ### Platform:
 
-*List supported platforms here*
+Works on Ubuntu 12.0.4LTS, 13.0.4, 13.0.10.
+
+Supported on Ubuntu 12.0.4LTS.
 
 ### Cookbooks:
 
-*List cookbook dependencies here*
+    apt
+    [octobase](https://github.com/darron/octobase-cookbook)
+    [docker](https://github.com/darron/docker-cookbook)
+    [redis](https://github.com/darron/redis-cookbook)
+    [nodejs](https://github.com/darron/nodejs-cookbook)
+    [hipache](https://github.com/darron/hipache-cookbook)
+    [serf](https://github.com/darron/serf-cookbook)
+    [gitreceive](https://github.com/darron/gitreceive-cookbook)
 
 Attributes
 ----------
 
-*List attributes here*
+There are lots of attributes available in each of the dependant cookbooks - we're not overriding any of them in this cookbook.
 
 Recipes
 -------
 
 ### octohost::default
 
-NOTE: This is a work in progress and isn't complete yet.
+Builds the [octohost](https://github.com/octohost/octohost) server using Chef.
 
 Testing
 -------
