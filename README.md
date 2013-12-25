@@ -6,20 +6,18 @@ Requirements
 
 ### Platform:
 
-Works on Ubuntu 12.0.4LTS, 13.0.4, 13.0.10.
-
 Supported on Ubuntu 12.0.4LTS.
 
 ### Cookbooks:
 
-    apt
-    [octobase](https://github.com/darron/octobase-cookbook)
-    [docker](https://github.com/darron/docker-cookbook)
-    [redis](https://github.com/darron/redis-cookbook)
-    [nodejs](https://github.com/darron/nodejs-cookbook)
-    [hipache](https://github.com/darron/hipache-cookbook)
-    [serf](https://github.com/darron/serf-cookbook)
-    [gitreceive](https://github.com/darron/gitreceive-cookbook)
+apt
+[octobase](https://github.com/darron/octobase-cookbook)
+[docker](https://github.com/darron/docker-cookbook)
+[redis](https://github.com/darron/redis-cookbook)
+[nodejs](https://github.com/darron/nodejs-cookbook)
+[hipache](https://github.com/darron/hipache-cookbook)
+[serf](https://github.com/darron/serf-cookbook)
+[gitreceive](https://github.com/darron/gitreceive-cookbook)
 
 Attributes
 ----------
