@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "berkshelf",  "~> 2.0"
 gem "chef",       "~> 11.0"
-gem "chefspec",   "~> 3.0"
+gem "chefspec",   "~> 3.1"
 gem "foodcritic", "~> 3.0"
 gem "rake"
 gem "tailor"
