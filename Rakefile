@@ -29,8 +29,11 @@ task :rubocop do
   sh 'bundle exec rubocop'
 end
 
-desc "Build octohost AMI using Packer"
-task :build do
+desc "Syntax check and build AMI"
+task :build => [:lint, :spec, :tailor, :taste, :rubocop, :packer]
+
+desc "Build AMI using Packer"
+task :packer do
   sh 'berks install --path vendor/cookbooks; packer build template.json'
 end
 
