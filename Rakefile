@@ -29,8 +29,13 @@ task :rubocop do
   sh 'bundle exec rubocop'
 end
 
+desc "Cleanup Vendor directory"
+task :cleanup do
+  sh 'rm -rf vendor/cookbooks/*'
+end
+
 desc "Syntax check and build AMI"
-task :build => [:lint, :spec, :tailor, :taste, :rubocop, :packer]
+task :build => [:cleanup, :lint, :spec, :tailor, :taste, :rubocop, :packer]
 
 desc "Build AMI using Packer"
 task :packer do
