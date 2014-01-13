@@ -30,9 +30,24 @@ task :rubocop do
 end
 
 desc "Cleanup Vendor directory"
-task :cleanup do
+task :cleanup_vendor do
   sh 'rm -rf vendor/cookbooks/*'
 end
+
+task :berksintall do
+  sh 'berks install --path vendor/cookbooks'
+end
+
+task :vagrantup do
+  sh 'vagrant up'
+end
+
+task :cleanup_vagrant do
+  sh 'vagrant destroy -f'
+end
+
+desc "Build Vagrant box"
+task :vagrant => [:cleanup_vendor, :cleanup_vagrant, :berksintall, :vagrantup]
 
 desc "Syntax check and build AMI"
 task :build => [:cleanup, :lint, :spec, :tailor, :taste, :rubocop, :packer]
