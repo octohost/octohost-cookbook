@@ -39,7 +39,7 @@ task :berksintall do
 end
 
 task :vagrantup do
-  sh 'vagrant up'
+  sh 'vagrant up --provision'
 end
 
 task :cleanup_vagrant do

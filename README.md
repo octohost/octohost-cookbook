@@ -24,6 +24,8 @@ Attributes
 
 There are lots of attributes available in each of the dependant cookbooks - we're not overriding any of them in this cookbook.
 
+If you're building on Vagrant, please view the note below.
+
 Recipes
 -------
 
@@ -31,7 +33,38 @@ Recipes
 
 Builds the [octohost](https://github.com/octohost/octohost) server using Chef.
 
-Testing
+### Vagrant Build
+
+Before you build the Vagrant box with `rake vagrant` - please update these attributes:
+
+    default['vagrant']['keys'] = 'https://raw.github.com/nonfiction/keys/master/keys'
+    default['git']['keys'] = 'https://raw.github.com/nonfiction/keys/master/gitreceive-keys'
+
+The wildcard domain record *.octodev.io will work for anyone at 192.168.62.86. An octohost is much more useful when your own keys are installed. Even though we can't get to your non-routable 192.168.62.86 address, please don't install our keys on your server.
+
+Once it's built and has your keys in it - package it up:
+
+    vagrant package default --output ~/Desktop/octohost.box
+    vagrant box add octohost ~/Desktop/octohost.box
+    vagrant init octohost
+
+Add this line to the Vagrantfile:
+
+    config.vm.network :private_network, ip: "192.168.62.86"
+
+Then:
+
+    vagrant up
+    git clone git@github.com:octohost/harp.git && cd harp
+    git remote add octo git@serve.octodev.io:harp.git
+    git push octo master
+    lynx http://harp.octodev.io
+
+You know have your own local, private octohost for development and testing - with a free wildcard dns record.
+
+You're welcome.
+
+#### Testing
 -------
 
 [![Build Status](https://travis-ci.org/octohost/octohost-cookbook.png?branch=master)](https://travis-ci.org/octohost/octohost-cookbook)
@@ -51,6 +84,7 @@ The cookbook provides the following Rake tasks for testing:
     rake tailor                       # Run tailor tests
     rake taste                        # Run taste tests
     rake test                         # Run all tests
+    rake vagrant                      # Build Vagrantbox
 
 License and Author
 ------------------

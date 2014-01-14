@@ -18,4 +18,5 @@
 # limitations under the License.
 #
 
-# Set meaningful node attributes here
+default['vagrant']['keys'] = 'https://raw.github.com/nonfiction/keys/master/keys'
+default['git']['keys'] = 'https://raw.github.com/nonfiction/keys/master/gitreceive-keys'
