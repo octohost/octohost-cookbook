@@ -4,20 +4,27 @@ Octohost Cookbook
 Requirements
 ------------
 
+### Required to build:
+
+1. [Packer](http://www.packer.io/downloads.html) - 0.5+ - for AWS
+2. [Vagrant](http://www.vagrantup.com/downloads.html) - 1.4.3+
+3. [VirtualBox](https://www.virtualbox.org/wiki/Downloads) - 4.3+
+4. Ruby 1.9+ with Bundler and Rake - `cd octohost-cookbook; bundle install`
+
 ### Platform:
 
 Supported on Ubuntu 12.0.4LTS.
 
 ### Cookbooks:
 
-apt
-[octobase](https://github.com/darron/octobase-cookbook)
-[docker](https://github.com/darron/docker-cookbook)
-[redis](https://github.com/darron/redis-cookbook)
-[nodejs](https://github.com/darron/nodejs-cookbook)
-[hipache](https://github.com/darron/hipache-cookbook)
-[serf](https://github.com/darron/serf-cookbook)
-[gitreceive](https://github.com/darron/gitreceive-cookbook)
+1. apt
+2. [octobase](https://github.com/darron/octobase-cookbook)
+3. [docker](https://github.com/darron/docker-cookbook)
+4. [redis](https://github.com/darron/redis-cookbook)
+5. [nodejs](https://github.com/darron/nodejs-cookbook)
+6. [hipache](https://github.com/darron/hipache-cookbook)
+7. [serf](https://github.com/darron/serf-cookbook)
+8. [gitreceive](https://github.com/darron/gitreceive-cookbook)
 
 Attributes
 ----------
@@ -65,7 +72,6 @@ You know have your own local, private octohost for development and testing - wit
 You're welcome.
 
 #### Testing
--------
 
 [![Build Status](https://travis-ci.org/octohost/octohost-cookbook.png?branch=master)](https://travis-ci.org/octohost/octohost-cookbook)
 
