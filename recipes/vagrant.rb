@@ -20,17 +20,17 @@
 
 package 'curl'
 
-execute 'install keys for vagrant user' do
+execute 'install keys for vagrant user' do # ~FC041
   command "curl #{node['vagrant']['keys']} >> /home/vagrant/.ssh/authorized_keys"
 end
 
-execute 'install keys to push to git user' do
+execute 'install keys to push to git user' do # ~FC041
   command "curl #{node['git']['keys']} >> /home/git/.ssh/authorized_keys"
 end
 
-bash "update domain name in /usr/bin/octo and /home/git/receiver" do
-  user "root"
-  cwd "/tmp"
+bash 'update domain name in /usr/bin/octo and /home/git/receiver' do
+  user 'root'
+  cwd '/tmp'
   code <<-EOH
     sed "s/\\$PUBLIC_IP\.xip\.io/octodev\.io/" /usr/bin/octo --in-place
     sed "s/DOMAIN_SUFFIX=\\"\\$PUBLIC_IP\.xip\.io/DOMAIN_SUFFIX=\\"octodev\.io/" /home/git/receiver --in-place

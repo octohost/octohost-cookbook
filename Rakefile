@@ -11,7 +11,7 @@ desc "Run ChefSpec examples"
 RSpec::Core::RakeTask.new(:spec)
 
 desc "Run all tests"
-task :test => [:lint, :spec, :tailor, :taste, :rubocop]
+task :test => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop]
 task :default => :test
 
 desc "Run tailor tests"
@@ -50,10 +50,12 @@ desc "Build Vagrant box"
 task :vagrant => [:cleanup_vendor, :cleanup_vagrant, :berksintall, :vagrantup]
 
 desc "Syntax check and build AMI"
-task :build => [:cleanup, :lint, :spec, :tailor, :taste, :rubocop, :packer]
+task :build => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop, :packer]
 
 desc "Build AMI using Packer"
-task :packer do
+task :packer => [:cleanup_vendor, :packer_build]
+
+task :packer_build do
   sh 'berks install --path vendor/cookbooks; packer build template.json'
 end
 

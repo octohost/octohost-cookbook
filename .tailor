@@ -1,0 +1,6 @@
+# .tailor
+Tailor.config do |config|
+  config.file_set 'attributes/default.rb' do |style|
+    style.max_line_length 150
+  end
+end
