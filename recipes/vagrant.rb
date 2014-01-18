@@ -35,5 +35,7 @@ bash 'update domain name in /usr/bin/octo and /home/git/receiver' do
     sed "s/\\$PUBLIC_IP\.xip\.io/octodev\.io/" /usr/bin/octo --in-place
     sed "s/DOMAIN_SUFFIX=\\"\\$PUBLIC_IP\.xip\.io/DOMAIN_SUFFIX=\\"octodev\.io/" /home/git/receiver --in-place
     sed "s/\\$PUBLIC_IP\.xip\.io/192\.168\.62\.86\.xip\.io/" /home/git/receiver --in-place
+    sed "s/\^PUBLIC_IP/# PUBLIC_IP/" /usr/bin/octo --in-place
+    sed "s/\^PUBLIC_IP/# PUBLIC_IP/" /home/git/receiver --in-place
   EOH
 end
