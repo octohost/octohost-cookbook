@@ -22,6 +22,8 @@ execute 'apt-get-update' do
   command 'apt-get update'
 end
 
+include_recipe 'ubuntu_base::default'
+
 include_recipe 'octobase::default'
 
 include_recipe 'docker::default'
