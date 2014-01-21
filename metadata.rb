@@ -9,7 +9,7 @@ recipe           'octohost::default', 'Installs/configures octohost'
 
 depends 'apt'
 depends 'ubuntu_base', '0.6.0'
-depends 'octobase', '0.4.0'
+depends 'octobase', '0.5.0'
 depends 'docker', '0.2.0'
 depends 'redis'
 depends 'nodejs'
