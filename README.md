@@ -40,6 +40,27 @@ Recipes
 
 Builds the [octohost](https://github.com/octohost/octohost) server using Chef.
 
+### Packer Build
+
+In order to build an Amazon AMI, DigitalOcean Droplet or Rackspace OpenStack image, you will need accounts for each. Export these values to get Packer to honor them automatically:
+
+    # Rackspace
+    export SDK_USERNAME="username"  # Same as here: https://mycloud.rackspace.com/
+    export SDK_PASSWORD="password-to-login" # Not the API key.
+    export SDK_PROVIDER="rackspace-us" # Or rackspace-uk
+
+    # EC2 - can be found here: https://portal.aws.amazon.com/gp/aws/securityCredentials?
+    export AWS_ACCESS_KEY="long-random-string"
+    export AWS_SECRET_KEY="another-even-longer-long-random-string"
+
+    # Digital Ocean - get these here: https://cloud.digitalocean.com/api_access
+    export DIGITALOCEAN_CLIENT_ID="long-random-string"
+    export DIGITALOCEAN_API_KEY="another-long-random-string"
+
+You may have to use a different source image - I am not sure if mine is available.
+
+I built my source image from [this related repo](https://github.com/octohost/ubuntu-12.0.4-3.8).
+
 ### Vagrant Build
 
 Before you build the Vagrant box with `rake build_vagrant` - please update these attributes:
