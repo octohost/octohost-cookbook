@@ -6,7 +6,7 @@ Requirements
 
 ### Required to build:
 
-1. [Packer](http://www.packer.io/downloads.html) - 0.5+ - for AWS
+1. [Packer](http://www.packer.io/downloads.html) - 0.5+ - for AWS, Rackspace and DigitalOcean.
 2. [Vagrant](http://www.vagrantup.com/downloads.html) - 1.4.3+
 3. [VirtualBox](https://www.virtualbox.org/wiki/Downloads) - 4.3+
 4. Ruby 1.9+ with Bundler and Rake - `cd octohost-cookbook; bundle install`
