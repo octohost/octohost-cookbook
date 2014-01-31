@@ -13,13 +13,25 @@
             "instance_type": "c1.medium",
             "ssh_username": "ubuntu",
             "ami_name": "octohost-chef {{timestamp}}"
+            },
+            {
+              "type": "digitalocean",
+              "image_id": "1505447",
+              "size_id": "63",
+              "snapshot_name": "octohost-chef {{timestamp}}"
+            },
+            {
+              "type": "openstack",
+              "region": "DFW",
+              "ssh_username": "root",
+              "image_name": "octohost-chef image",
+              "source_image": "23b564c9-c3e6-49f9-bc68-86c7a9ab5018",
+              "flavor": "2"
             }],
 
     "provisioners": [{
       "type": "chef-solo",
       "cookbook_paths": ["./vendor/cookbooks"],
       "run_list": [ "octohost" ]
-    }],
-
-    "post-processors": ["vagrant"]
+    }]
 }
