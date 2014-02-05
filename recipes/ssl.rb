@@ -1,7 +1,7 @@
 # encoding: utf-8
 #
 # Cookbook Name:: octohost
-# Recipe:: default
+# Recipe:: ssl
 #
 # Copyright (C) 2013, Darron Froese <darron@froese.org>
 #
@@ -18,24 +18,18 @@
 # limitations under the License.
 #
 
-execute 'apt-get-update' do
-  command 'apt-get update'
+# Add key, cert and config file.
+%w{/etc/hipache/ssl.key /etc/hipache/ssl.crt /etc/hipache/hipache.json}.each do |conf|
+  cookbook_file conf do
+    action :create
+  end
 end
 
-include_recipe 'ubuntu_base::default'
-
-include_recipe 'octobase::default'
-
-include_recipe 'docker::default'
-
-include_recipe 'redis::default'
-
-include_recipe 'nodejs::default'
-
-include_recipe 'hipache::default'
-
-include_recipe 'octohost::ssl'
-
-include_recipe 'serf::default'
-
-include_recipe 'gitreceive::default'
+# Restart hipache.
+bash 'restart hipache' do
+  cwd 'root'
+  user 'root'
+  code <<-EOF
+    service hipache restart
+  EOF
+end

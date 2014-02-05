@@ -1,0 +1,20 @@
+{
+    "server": {
+        "accessLog": "/var/log/hipache_access.log",
+        "port": 80,
+        "workers": 5,
+        "maxSockets": 100,
+        "deadBackendTTL": 30,
+        "address": ["0.0.0.0"],
+        "https": {
+                    "port": 443,
+                    "key": "/etc/hipache/ssl.key",
+                    "cert": "/etc/hipache/ssl.crt"
+        }
+    },
+    "redisHost": "127.0.0.1",
+    "redisPort": 6379,
+    "redisDatabase": 0
+
+}
+
