@@ -9,7 +9,7 @@
             "access_key": "{{user `aws_access_key`}}",
             "secret_key": "{{user `aws_secret_key` }}",
             "region": "us-west-2",
-            "source_ami": "ami-b4eb8a84",
+            "source_ami": "ami-64402354",
             "instance_type": "c1.medium",
             "ssh_username": "ubuntu",
             "ami_name": "octohost-chef {{timestamp}}"
@@ -27,6 +27,16 @@
               "image_name": "octohost-chef {{timestamp}}",
               "source_image": "95d7b51e-bcce-4166-a831-62cb73624920",
               "flavor": "3"
+            },
+            {
+              "type": "googlecompute",
+              "project_id": "pacific-vault-481",
+              "bucket_name": "octohost-packer-images",
+              "client_secrets_file": "google.json",
+              "private_key_file": "google.pem",
+              "source_image": "debian-7-wheezy-v20131120",
+              "zone": "us-central1-a",
+              "image_name": "octohost-{{timestamp}}"
             }],
 
     "provisioners": [{
