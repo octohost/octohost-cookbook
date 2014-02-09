@@ -1,5 +1,5 @@
 #!/bin/bash
-# Install keys.
+# Install keys - some example keys are here: https://github.com/nonfiction/keys
 curl https://put-keys-here.com/keys >> /home/ubuntu/.ssh/authorized_keys
 curl https://put-keys-here.com/gitreceive-keys >> /home/git/.ssh/authorized_keys
 # Setup domain name.
