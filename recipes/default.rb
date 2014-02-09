@@ -30,6 +30,8 @@ include_recipe 'docker::default'
 
 include_recipe 'redis::default'
 
+include_recipe 'hipache_nginx::default'
+
 include_recipe 'octohost::ssl'
 
 include_recipe 'serf::default'

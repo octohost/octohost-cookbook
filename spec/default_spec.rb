@@ -21,6 +21,10 @@ describe 'octohost::default' do
     expect(chef_run).to include_recipe('redis::default')
   end
 
+  it 'includes the `hipache_nginx` recipe' do
+    expect(chef_run).to include_recipe('hipache_nginx::default')
+  end
+
   it 'includes the `serf` recipe' do
     expect(chef_run).to include_recipe('serf::default')
   end
