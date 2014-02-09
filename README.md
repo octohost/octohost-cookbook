@@ -63,6 +63,8 @@ I built my source image from [this related repo](https://github.com/octohost/ubu
 
 ### Vagrant Build
 
+An already created Vagrant box is available at [here](https://github.com/octohost/octovagrant) - if you want to build your own read on.
+
 Before you build the Vagrant box with `rake build_vagrant` - please update these attributes:
 
     default['vagrant']['keys'] = 'https://raw.github.com/nonfiction/keys/master/keys'
