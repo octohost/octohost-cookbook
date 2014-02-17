@@ -21,10 +21,9 @@ Supported on Ubuntu 12.0.4LTS.
 2. [octobase](https://github.com/darron/octobase-cookbook)
 3. [docker](https://github.com/darron/docker-cookbook)
 4. [redis](https://github.com/darron/redis-cookbook)
-5. [nodejs](https://github.com/darron/nodejs-cookbook)
-6. [hipache](https://github.com/darron/hipache-cookbook)
-7. [serf](https://github.com/darron/serf-cookbook)
-8. [gitreceive](https://github.com/darron/gitreceive-cookbook)
+5. [hipache_nginx](https://github.com/darron/hipache_nginx-cookbook)
+6. [serf](https://github.com/darron/serf-cookbook)
+7. [gitreceive](https://github.com/darron/gitreceive-cookbook)
 
 Attributes
 ----------
