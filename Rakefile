@@ -61,7 +61,8 @@ task :build => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop, :packe
 task :packer => [:cleanup_vendor, :packer_build]
 
 task :packer_build do
-  sh 'berks install --path vendor/cookbooks; packer build template.json'
+  sh 'berks install --path vendor/cookbooks'
+  sh 'packer build template.json'
 end
 
 desc "Syntax check and build AMI"
@@ -70,7 +71,8 @@ task :build_ami => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop, :p
 task :packer_ami => [:cleanup_vendor, :packer_build_ami]
 
 task :packer_build_ami do
-  sh 'berks install --path vendor/cookbooks; packer build -only=amazon-ebs template.json'
+  sh 'berks install --path vendor/cookbooks'
+  sh 'packer build -only=amazon-ebs template.json'
 end
 
 desc "Syntax check and build Droplet"
@@ -79,7 +81,8 @@ task :build_droplet => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop
 task :packer_droplet => [:cleanup_vendor, :packer_build_droplet]
 
 task :packer_build_droplet do
-  sh 'berks install --path vendor/cookbooks; packer build -only=digitalocean template.json'
+  sh 'berks install --path vendor/cookbooks'
+  sh 'packer build -only=digitalocean template.json'
 end
 
 desc "Syntax check and build Openstack Image"
@@ -88,7 +91,8 @@ task :build_openstack => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :ruboc
 task :packer_openstack => [:cleanup_vendor, :packer_build_openstack]
 
 task :packer_build_openstack do
-  sh 'berks install --path vendor/cookbooks; packer build -only=openstack template.json'
+  sh 'berks install --path vendor/cookbooks'
+  sh 'packer build -only=openstack template.json'
 end
 
 desc "Syntax check and build Google Compute Image"
@@ -97,7 +101,8 @@ task :build_gce => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop, :p
 task :packer_gce => [:cleanup_vendor, :packer_build_gce]
 
 task :packer_build_gce do
-  sh 'berks install --path vendor/cookbooks; packer build -only=googlecompute template.json'
+  sh 'berks install --path vendor/cookbooks'
+  sh 'packer build -only=googlecompute template.json'
 end
 
 task :convert_gce do
