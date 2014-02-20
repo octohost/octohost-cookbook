@@ -10,6 +10,7 @@ Requirements
 2. [Vagrant](http://www.vagrantup.com/downloads.html) - 1.4.3+
 3. [VirtualBox](https://www.virtualbox.org/wiki/Downloads) - 4.3+
 4. Ruby 1.9+ with Bundler and Rake - `cd octohost-cookbook; bundle install`
+5. A unix like platform - this is built on OS X and may not work on Windows. \(Patches are welcome.\)
 
 ### Platform:
 
