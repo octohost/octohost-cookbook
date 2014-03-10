@@ -37,6 +37,10 @@ describe 'octohost::default' do
     expect(chef_run).to include_recipe('gitreceive::default')
   end
 
+  it 'includes the `etcd` recipe' do
+    expect(chef_run).to include_recipe('etcd::default')
+  end
+
   before do
     stub_command("hipache -h | grep 'hipache server'").and_return(true)
   end

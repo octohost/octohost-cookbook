@@ -28,6 +28,8 @@ include_recipe 'octobase::default'
 
 include_recipe 'docker::default'
 
+include_recipe 'etcd::default'
+
 include_recipe 'redis::default'
 
 include_recipe 'nodejs::default'
