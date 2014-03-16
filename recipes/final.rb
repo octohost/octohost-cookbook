@@ -1,9 +1,9 @@
 # encoding: utf-8
 #
 # Cookbook Name:: octohost
-# Recipe:: default
+# Recipe:: final
 #
-# Copyright (C) 2013, Darron Froese <darron@froese.org>
+# Copyright (C) 2014, Darron Froese <darron@froese.org>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,30 +18,23 @@
 # limitations under the License.
 #
 
-execute 'apt-get-update' do
-  command 'apt-get update'
+# Add git, vagrant and ubuntu to docker group.
+group 'docker' do
+  action :modify
+  members 'ubuntu'
+  append true
+  not_if { vagrant? }
 end
 
-include_recipe 'chef-sugar::default'
+group 'docker' do
+  action :modify
+  members 'vagrant'
+  append true
+  only_if { vagrant? }
+end
 
-include_recipe 'ubuntu_base::default'
-
-include_recipe 'octobase::default'
-
-include_recipe 'docker::default'
-
-include_recipe 'etcd::default'
-
-include_recipe 'redis::default'
-
-include_recipe 'nodejs::default'
-
-include_recipe 'hipache::default'
-
-include_recipe 'octohost::ssl'
-
-include_recipe 'serf::default'
-
-include_recipe 'gitreceive::default'
-
-include_recipe 'octohost::final'
+group 'docker' do
+  action :modify
+  members 'git'
+  append true
+end
