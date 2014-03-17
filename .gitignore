@@ -24,3 +24,5 @@
 google.json
 google.p12
 google.pem
+
+coverage/
