@@ -19,7 +19,7 @@
 #
 
 # Add key, cert and config file.
-%w{(/etc/hipache/ssl.key) (/etc/hipache/ssl.crt) (/etc/hipache/hipache.json)}.each do |conf|
+%w(/etc/hipache/ssl.key /etc/hipache/ssl.crt /etc/hipache/hipache.json).each do |conf|
   cookbook_file conf do
     action :create
   end
