@@ -23,14 +23,14 @@ group 'docker' do
   action :modify
   members 'ubuntu'
   append true
-  not_if { vagrant? }
+  only_if { File.exist?('/home/ubuntu') }
 end
 
 group 'docker' do
   action :modify
   members 'vagrant'
   append true
-  only_if { vagrant? }
+  only_if { File.exist?('/home/vagrant') }
 end
 
 group 'docker' do
