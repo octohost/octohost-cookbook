@@ -19,17 +19,17 @@
 #
 
 # Add key, cert and config file.
-%w(/etc/hipache/ssl.key /etc/hipache/ssl.crt /etc/hipache/hipache.json).each do |conf|
+%w(/etc/nginx/ssl.key /etc/nginx/ssl.crt).each do |conf|
   cookbook_file conf do
     action :create
   end
 end
 
 # Restart hipache.
-bash 'restart hipache' do
+bash 'restart proxy' do
   cwd 'root'
   user 'root'
   code <<-EOF
-    service hipache restart
+    service proxy restart
   EOF
 end
