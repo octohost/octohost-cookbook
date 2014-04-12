@@ -41,4 +41,48 @@ describe 'octohost::default' do
     expect(chef_run).to include_recipe('etcd::default')
   end
 
+  it 'installs the proxy proxy.conf' do
+    expect(chef_run).to create_cookbook_file('/etc/nginx/proxy.conf')
+  end
+
+  it 'installs the proxy api.conf' do
+    expect(chef_run).to create_cookbook_file('/etc/nginx/api.conf')
+  end
+
+  it 'installs the proxy upstream.conf' do
+    expect(chef_run).to create_cookbook_file('/etc/nginx/upstream.conf')
+  end
+
+  it 'installs the proxy default' do
+    expect(chef_run).to create_cookbook_file('/etc/default/proxy')
+  end
+
+  it 'installs the proxy init.d' do
+    expect(chef_run).to create_cookbook_file('/etc/init.d/proxy')
+  end
+
+  it 'installs the proxy ssl.key' do
+    expect(chef_run).to create_cookbook_file('/etc/nginx/ssl.key')
+  end
+
+  it 'installs the proxy ssl.crt' do
+    expect(chef_run).to create_cookbook_file('/etc/nginx/ssl.crt')
+  end
+
+  it 'disables nginx' do
+    expect(chef_run).to disable_service('nginx')
+  end
+
+  it 'stops nginx' do
+    expect(chef_run).to stop_service('nginx')
+  end
+
+  it 'enables proxy' do
+    expect(chef_run).to enable_service('proxy')
+  end
+
+  it 'starts proxy' do
+    expect(chef_run).to start_service('proxy')
+  end
+
 end
