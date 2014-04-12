@@ -38,6 +38,8 @@ include_recipe 'nodejs::default'
 
 include_recipe 'openresty::default'
 
+include_recipe 'octohost::openresty'
+
 include_recipe 'octohost::ssl'
 
 include_recipe 'serf::default'
