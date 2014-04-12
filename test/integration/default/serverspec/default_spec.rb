@@ -26,7 +26,15 @@ describe 'octohost::default' do
     it { should be_listening }
   end
 
+  describe service('proxy') do
+    it { should be_enabled }
+  end
+
   describe port(80) do
+    it { should be_listening }
+  end
+
+  describe port(8080) do
     it { should be_listening }
   end
 
