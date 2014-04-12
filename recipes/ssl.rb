@@ -25,7 +25,7 @@
   end
 end
 
-# Restart hipache.
+# Restart nginx.
 bash 'restart proxy' do
   cwd 'root'
   user 'root'
