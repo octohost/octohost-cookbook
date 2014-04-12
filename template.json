@@ -42,7 +42,6 @@
     "provisioners": [{
       "type": "chef-solo",
       "cookbook_paths": ["./vendor/cookbooks"],
-      "run_list": [ "octohost" ],
-      "skip_install": "true"
+      "run_list": [ "octohost" ]
     }]
 }
