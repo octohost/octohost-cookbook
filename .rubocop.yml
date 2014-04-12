@@ -1,6 +1,8 @@
 LineLength:
   Max: 150
 AllCops:
-  Excludes:
+  Exclude:
     - vendor/**
     - foodcritic/**
+SingleSpaceBeforeFirstArg:
+  Enabled: false
