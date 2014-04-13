@@ -40,8 +40,6 @@ include_recipe 'openresty::default'
 
 include_recipe 'octohost::openresty'
 
-include_recipe 'serf::default'
-
 include_recipe 'gitreceive::default'
 
 include_recipe 'octohost::final'
