@@ -23,6 +23,12 @@ service 'nginx' do
   action [:disable, :stop]
 end
 
+%w(/etc/nginx/ssl.key /etc/nginx/ssl.crt).each do |conf|
+  cookbook_file conf do
+    action :create
+  end
+end
+
 cookbook_file '/etc/nginx/proxy.conf' do
   source 'proxy.conf'
   owner 'root'
