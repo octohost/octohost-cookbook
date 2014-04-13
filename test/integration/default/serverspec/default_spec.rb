@@ -38,6 +38,10 @@ describe 'octohost::default' do
     it { should be_listening }
   end
 
+  describe file('/usr/local/bin/ngxtop') do
+    it { should be_file }
+  end
+
   describe service('etcd') do
     it { should be_enabled }
     it { should be_running }

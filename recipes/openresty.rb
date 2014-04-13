@@ -68,3 +68,14 @@ service 'proxy' do
   supports :status => true # rubocop:disable HashSyntax
   action [:enable, :start]
 end
+
+# Add ngxtop
+package 'python-pip'
+
+bash 'install ngxtop' do
+  user 'root'
+  cwd '/tmp'
+  code <<-EOH
+    pip install ngxtop
+  EOH
+end
