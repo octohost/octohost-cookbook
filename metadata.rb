@@ -4,7 +4,7 @@ maintainer       'Darron Froese'
 maintainer_email 'darron@froese.org'
 license          'Apache 2.0'
 description      'Installs/configures octohost'
-version          '0.13.0'
+version          '0.14.0'
 recipe           'octohost::default', 'Installs/configures octohost'
 
 depends 'chef-sugar'
