@@ -19,7 +19,7 @@
 #
 
 service 'redis-server' do
-  supports :restart => true
+  supports :restart => true # rubocop:disable HashSyntax
   action :nothing
 end
 
@@ -28,5 +28,5 @@ cookbook_file '/etc/redis/redis.conf' do
   owner 'root'
   group 'root'
   mode '0644'
-  notifies :restart, "service[redis-server]", :immediately
+  notifies :restart, 'service[redis-server]', :immediately
 end

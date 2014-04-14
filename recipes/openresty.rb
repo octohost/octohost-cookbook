@@ -34,7 +34,7 @@ cookbook_file '/etc/nginx/proxy.conf' do
   owner 'root'
   group 'root'
   mode '0644'
-  notifies :restart, "service[proxy]", :delayed
+  notifies :restart, 'service[proxy]', :delayed
 end
 
 cookbook_file '/etc/nginx/api.conf' do
@@ -42,7 +42,7 @@ cookbook_file '/etc/nginx/api.conf' do
   owner 'root'
   group 'root'
   mode '0644'
-  notifies :restart, "service[proxy]", :delayed
+  notifies :restart, 'service[proxy]', :delayed
 end
 
 cookbook_file '/etc/init.d/proxy' do
@@ -50,7 +50,7 @@ cookbook_file '/etc/init.d/proxy' do
   owner 'root'
   group 'root'
   mode '0755'
-  notifies :restart, "service[proxy]", :delayed
+  notifies :restart, 'service[proxy]', :delayed
 end
 
 cookbook_file '/etc/default/proxy' do
@@ -58,7 +58,7 @@ cookbook_file '/etc/default/proxy' do
   owner 'root'
   group 'root'
   mode '0644'
-  notifies :restart, "service[proxy]", :delayed
+  notifies :restart, 'service[proxy]', :delayed
 end
 
 cookbook_file '/etc/nginx/upstream.conf' do
@@ -66,7 +66,7 @@ cookbook_file '/etc/nginx/upstream.conf' do
   owner 'root'
   group 'root'
   mode '0644'
-  notifies :restart, "service[proxy]", :delayed
+  notifies :restart, 'service[proxy]', :delayed
 end
 
 service 'proxy' do
