@@ -34,7 +34,7 @@ describe 'octohost::default' do
     it { should be_listening }
   end
 
-  describe port(8080) do
+  describe port(81) do
     it { should be_listening }
   end
 
