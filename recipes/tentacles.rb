@@ -1,9 +1,9 @@
 # encoding: utf-8
 #
 # Cookbook Name:: octohost
-# Recipe:: default
+# Recipe:: tentacles
 #
-# Copyright (C) 2013, Darron Froese <darron@froese.org>
+# Copyright (C) 2014, Darron Froese <darron@froese.org>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,32 +18,10 @@
 # limitations under the License.
 #
 
-execute 'apt-get-update' do
-  command 'apt-get update'
+bash 'pull octohost/tentacles' do
+  user 'root'
+  cwd '/tmp'
+  code <<-EOH
+    docker pull octohost/tentacles
+  EOH
 end
-
-include_recipe 'chef-sugar::default'
-
-include_recipe 'ubuntu_base::default'
-
-include_recipe 'octobase::default'
-
-include_recipe 'docker::default'
-
-include_recipe 'etcd::default'
-
-include_recipe 'redis::default'
-
-include_recipe 'octohost::redis'
-
-include_recipe 'nodejs::default'
-
-include_recipe 'openresty::default'
-
-include_recipe 'octohost::openresty'
-
-include_recipe 'octohost::tentacles'
-
-include_recipe 'gitreceive::default'
-
-include_recipe 'octohost::final'

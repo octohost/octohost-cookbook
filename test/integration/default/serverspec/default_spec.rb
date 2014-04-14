@@ -38,6 +38,10 @@ describe 'octohost::default' do
     it { should be_listening }
   end
 
+  describe command('docker images') do
+    it { should return_stdout /octohost\/tentacles/ }
+  end
+
   describe file('/usr/local/bin/ngxtop') do
     it { should be_file }
   end
