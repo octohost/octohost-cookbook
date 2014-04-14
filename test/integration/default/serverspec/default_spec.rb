@@ -39,7 +39,7 @@ describe 'octohost::default' do
   end
 
   describe command('docker images') do
-    it { should return_stdout /octohost\/tentacles/ }
+    it { should return_stdout /octohost\/tentacles/ } # rubocop:disable AmbiguousRegexpLiteral
   end
 
   describe file('/usr/local/bin/ngxtop') do
