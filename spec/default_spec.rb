@@ -81,4 +81,20 @@ describe 'octohost::default' do
     expect(chef_run).to start_service('proxy')
   end
 
+  it 'enables redis-server' do
+    expect(chef_run).to enable_service('redis-server')
+  end
+
+  it 'starts redis-server' do
+    expect(chef_run).to start_service('redis-server')
+  end
+
+  it 'installs a redis config file' do
+    expect(chef_run).to create_cookbook_file('/etc/redis/redis.conf')
+  end
+
+  it 'installs python-pip' do
+    expect(chef_run).to install_package('python-pip')
+  end
+
 end
