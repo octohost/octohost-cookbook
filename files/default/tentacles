@@ -1,0 +1,8 @@
+description "Tentacles container"
+
+start on filesystem and started docker
+stop on runlevel [!2345]
+
+script
+  /usr/bin/octo tentacles start
+end script

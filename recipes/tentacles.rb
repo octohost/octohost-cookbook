@@ -25,3 +25,10 @@ bash 'pull octohost/tentacles' do
     docker pull octohost/tentacles
   EOH
 end
+
+cookbook_file '/etc/init/tentacles.conf' do
+  source 'tentacles'
+  owner 'root'
+  group 'root'
+  mode '0755'
+end

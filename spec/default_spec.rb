@@ -97,4 +97,8 @@ describe 'octohost::default' do
     expect(chef_run).to install_package('python-pip')
   end
 
+  it 'installs a tentacles init file' do
+    expect(chef_run).to create_cookbook_file('/etc/init/tentacles.conf')
+  end
+
 end

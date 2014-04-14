@@ -42,6 +42,10 @@ describe 'octohost::default' do
     it { should return_stdout /octohost\/tentacles/ } # rubocop:disable AmbiguousRegexpLiteral
   end
 
+  describe file('/etc/init/tentacles.conf') do
+    it { should be_file }
+  end
+
   describe file('/usr/local/bin/ngxtop') do
     it { should be_file }
   end
