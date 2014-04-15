@@ -25,7 +25,7 @@
               "region": "DFW",
               "ssh_username": "root",
               "image_name": "octohost-chef {{timestamp}}",
-              "source_image": "95d7b51e-bcce-4166-a831-62cb73624920",
+              "source_image": "92f51721-5758-4137-ab05-136bb9470093",
               "flavor": "3"
             },
             {
