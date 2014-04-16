@@ -38,6 +38,10 @@ describe 'octohost::default' do
     it { should be_listening }
   end
 
+  describe port(443) do
+    it { should be_listening }
+  end
+
   describe command('docker images') do
     it { should return_stdout /octohost\/tentacles/ } # rubocop:disable AmbiguousRegexpLiteral
   end
@@ -47,6 +51,14 @@ describe 'octohost::default' do
   end
 
   describe file('/usr/local/bin/ngxtop') do
+    it { should be_file }
+  end
+
+  describe file('/usr/local/share/GeoIP/GeoLiteCity.dat') do
+    it { should be_file }
+  end
+
+  describe file('/usr/local/share/GeoIP/GeoIP.dat') do
     it { should be_file }
   end
 
