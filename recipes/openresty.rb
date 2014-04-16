@@ -69,6 +69,38 @@ cookbook_file '/etc/nginx/upstream.conf' do
   notifies :restart, 'service[proxy]', :delayed
 end
 
+# Setup GeoIP
+directory '/usr/local/share/GeoIP/' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  recursive true
+  action :create
+end
+
+remote_file '/usr/local/share/GeoIP/GeoIP.dat.gz' do
+  source 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz'
+  owner 'root'
+  group 'root'
+  not_if { File.exist?('/usr/local/share/GeoIP/GeoIP.dat') }
+end
+
+remote_file '/usr/local/share/GeoIP/GeoLiteCity.dat.gz' do
+  source 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz'
+  owner 'root'
+  group 'root'
+  not_if { File.exist?('/usr/local/share/GeoIP/GeoLiteCity.dat') }
+end
+
+bash 'unzip the GeoIP files' do
+  user 'root'
+  cwd '/usr/local/share/GeoIP/'
+  code <<-EOH
+    gunzip *
+  EOH
+  not_if { File.exist?('/usr/local/share/GeoIP/GeoLiteCity.dat') }
+end
+
 service 'proxy' do
   supports :status => true # rubocop:disable HashSyntax
   action [:enable, :start]
