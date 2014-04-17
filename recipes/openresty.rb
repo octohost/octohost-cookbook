@@ -69,6 +69,13 @@ cookbook_file '/etc/nginx/upstream.conf' do
   notifies :restart, 'service[proxy]', :delayed
 end
 
+cookbook_file '/etc/logrotate.d/nginx' do
+  source 'logrotate'
+  owner 'root'
+  group 'root'
+  mode '0644'
+end
+
 # Setup GeoIP
 directory '/usr/local/share/GeoIP/' do
   owner 'root'

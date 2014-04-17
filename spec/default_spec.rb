@@ -41,6 +41,10 @@ describe 'octohost::default' do
     expect(chef_run).to create_cookbook_file('/etc/nginx/proxy.conf')
   end
 
+  it 'installs the proxy logrotate' do
+    expect(chef_run).to create_cookbook_file('/etc/logrotate.d/nginx')
+  end
+
   it 'installs the proxy api.conf' do
     expect(chef_run).to create_cookbook_file('/etc/nginx/api.conf')
   end
@@ -99,6 +103,18 @@ describe 'octohost::default' do
 
   it 'installs a tentacles init file' do
     expect(chef_run).to create_cookbook_file('/etc/init/tentacles.conf')
+  end
+
+  it 'creates the GeopIP directory' do
+    expect(chef_run).to create_directory('/usr/local/share/GeoIP/')
+  end
+
+  it 'downloads the GeoIP country data file' do
+    expect(chef_run).to create_remote_file('/usr/local/share/GeoIP/GeoIP.dat.gz')
+  end
+
+  it 'downloads the GeoIP city data file' do
+    expect(chef_run).to create_remote_file('/usr/local/share/GeoIP/GeoLiteCity.dat.gz')
   end
 
 end
