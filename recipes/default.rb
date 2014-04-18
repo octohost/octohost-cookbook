@@ -46,4 +46,6 @@ include_recipe 'octohost::tentacles'
 
 include_recipe 'gitreceive::default'
 
+include_recipe 'octohost::firewall' unless ec2?
+
 include_recipe 'octohost::final'
