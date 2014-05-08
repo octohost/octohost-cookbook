@@ -21,11 +21,11 @@
 package 'curl'
 
 execute 'install keys for vagrant user' do # ~FC041
-  command "curl #{node['vagrant']['keys']} >> /home/vagrant/.ssh/authorized_keys"
+  command "curl -L #{node['vagrant']['keys']} >> /home/vagrant/.ssh/authorized_keys"
 end
 
 execute 'install keys to push to git user' do # ~FC041
-  command "curl #{node['git']['keys']} >> /home/git/.ssh/authorized_keys"
+  command "curl -L #{node['git']['keys']} >> /home/git/.ssh/authorized_keys"
 end
 
 bash 'update domain name in /etc/default/octohost' do
