@@ -28,14 +28,12 @@ execute 'install keys to push to git user' do # ~FC041
   command "curl #{node['git']['keys']} >> /home/git/.ssh/authorized_keys"
 end
 
-bash 'update domain name in /usr/bin/octo and /home/git/receiver' do
+bash 'update domain name in /etc/default/octohost' do
   user 'root'
   cwd '/tmp'
   code <<-EOH
-    sed "s/\\$PUBLIC_IP\.xip\.io/octodev\.io/" /usr/bin/octo --in-place
-    sed "s/DOMAIN_SUFFIX=\\"\\$PUBLIC_IP\.xip\.io/DOMAIN_SUFFIX=\\"octodev\.io/" /home/git/receiver --in-place
-    sed "s/\\$PUBLIC_IP\.xip\.io/192\.168\.62\.86\.xip\.io/" /home/git/receiver --in-place
-    sed "s/\^PUBLIC_IP/# PUBLIC_IP/" /usr/bin/octo --in-place
-    sed "s/\^PUBLIC_IP/# PUBLIC_IP/" /home/git/receiver --in-place
+    sed -i '5s/.*/PUBLIC_IP=\"192\.168\.62\.86\"/' /etc/default/octohost
+    sed -i '6s/.*/PRIVATE_IP=\"192\.168\.62\.86\"/' /etc/default/octohost
+    sed -i '8s/.*/DOMAIN_SUFFIX=\"octodev\.io\"/' /etc/default/octohost
   EOH
 end
