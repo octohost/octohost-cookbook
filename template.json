@@ -22,10 +22,10 @@
             },
             {
               "type": "openstack",
-              "region": "DFW",
+              "region": "dfw",
               "ssh_username": "root",
               "image_name": "octohost-chef {{timestamp}}",
-              "source_image": "92f51721-5758-4137-ab05-136bb9470093",
+              "source_image": "6028c5ea-e9ea-4edc-8bf2-1a0ddd74eebb",
               "flavor": "3"
             },
             {
