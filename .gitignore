@@ -25,4 +25,7 @@ google.json
 google.p12
 google.pem
 
+# knife solo
+nodes/
+
 coverage/

@@ -10,6 +10,7 @@ gem "rubocop"
 gem "chef-taste"
 gem 'coveralls', require: false
 gem 'chef-sugar'
+gem 'knife-solo'
 
 group :integration do
   gem "test-kitchen", "~> 1.0"
