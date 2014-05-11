@@ -48,4 +48,6 @@ include_recipe 'octohost::firewall' unless ec2?
 
 include_recipe 'octohost::rackspace' if rackspace?
 
+include_recipe 'octohost::linode' if linode?
+
 include_recipe 'octohost::final'
