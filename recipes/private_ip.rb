@@ -1,7 +1,7 @@
 # encoding: utf-8
 #
 # Cookbook Name:: octohost
-# Recipe:: linode
+# Recipe:: private_ip
 #
 # Copyright (C) 2014, Darron Froese <darron@froese.org>
 #
@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-bash 'Update PRIVATE_IP for linode.' do
+bash 'Update PRIVATE_IP for everybody except EC2.' do
   user 'root'
   cwd '/tmp'
   code <<-EOH
