@@ -36,8 +36,6 @@ include_recipe 'redis::default'
 
 include_recipe 'octohost::redis'
 
-include_recipe 'nodejs::default'
-
 include_recipe 'openresty::default'
 
 include_recipe 'octohost::openresty'

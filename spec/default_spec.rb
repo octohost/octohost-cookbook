@@ -21,10 +21,6 @@ describe 'octohost::default' do
     expect(chef_run).to include_recipe('redis::default')
   end
 
-  it 'includes the `nodejs` recipe' do
-    expect(chef_run).to include_recipe('nodejs::default')
-  end
-
   it 'includes the `openresty` recipe' do
     expect(chef_run).to include_recipe('openresty::default')
   end
