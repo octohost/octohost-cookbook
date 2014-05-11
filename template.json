@@ -16,7 +16,7 @@
             },
             {
               "type": "digitalocean",
-              "image_id": "1505447",
+              "image_id": "3240036",
               "size_id": "63",
               "snapshot_name": "octohost-chef {{timestamp}}"
             },
