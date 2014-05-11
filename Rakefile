@@ -37,6 +37,7 @@ end
 desc "Cleanup Vendor directory"
 task :cleanup_vendor do
   sh 'rm -rf vendor/cookbooks/*'
+  sh 'rm -rf cookbooks && rm -rf nodes'
 end
 
 task :berksinstall do
