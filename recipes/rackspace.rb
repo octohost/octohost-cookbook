@@ -25,3 +25,15 @@ bash 'Update PRIVATE_IP for rackspace.' do
     sed -i '6s/.*/PRIVATE_IP=\$(ifconfig eth1 \| grep \"inet addr\" \| cut --delimiter=\":\" -f 2 \| cut --delimiter=\" \" -f 1)/' /etc/default/octohost
   EOH
 end
+
+execute 'install keys to push to git user' do # ~FC041
+  command "curl -L #{node['git']['keys']} >> /home/git/.ssh/authorized_keys"
+end
+
+bash 'start tentacles' do
+  user 'root'
+  cwd '/tmp'
+  code <<-EOH
+  octo tentacles start
+  EOH
+end
