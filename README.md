@@ -7,14 +7,14 @@ Requirements
 ### Required to build:
 
 1. [Packer](http://www.packer.io/downloads.html) - 0.5+ - for AWS, Rackspace and DigitalOcean.
-2. [Vagrant](http://www.vagrantup.com/downloads.html) - 1.4.3+
+2. [Vagrant](http://www.vagrantup.com/downloads.html) - 1.5.0+
 3. [VirtualBox](https://www.virtualbox.org/wiki/Downloads) - 4.3+
 4. Ruby 1.9+ with Bundler and Rake - `cd octohost-cookbook; bundle install`
 5. A unix like platform - this is built on OS X and may not work on Windows. \(Patches are welcome.\)
 
 ### Platform:
 
-Supported on Ubuntu 12.0.4LTS.
+Supported on Ubuntu 12.04LTS and 14.04LTS.
 
 ### Cookbooks:
 
@@ -22,10 +22,8 @@ Supported on Ubuntu 12.0.4LTS.
 2. [octobase](https://github.com/darron/octobase-cookbook)
 3. [docker](https://github.com/darron/docker-cookbook)
 4. [redis](https://github.com/darron/redis-cookbook)
-5. [nodejs](https://github.com/darron/nodejs-cookbook)
-6. [hipache](https://github.com/darron/hipache-cookbook)
-7. [serf](https://github.com/darron/serf-cookbook)
-8. [gitreceive](https://github.com/darron/gitreceive-cookbook)
+5. [openresty](https://github.com/darron/openresty-cookbook)
+6. [gitreceive](https://github.com/darron/gitreceive-cookbook)
 
 Attributes
 ----------
@@ -39,7 +37,7 @@ Recipes
 
 ### octohost::default
 
-Builds the [octohost](https://github.com/octohost/octohost) server using Chef.
+Builds the [octohost](https://www.octohost.io) server using Chef.
 
 ### Packer Build
 
@@ -58,9 +56,9 @@ In order to build an Amazon AMI, DigitalOcean Droplet or Rackspace OpenStack ima
     export DIGITALOCEAN_CLIENT_ID="long-random-string"
     export DIGITALOCEAN_API_KEY="another-long-random-string"
 
-You may have to use a different source image - I am not sure if mine is available.
+You may have to use a different source image for Rackspace - Rackspace doesn't allow you to share them.
 
-I built my source image from [this related repo](https://github.com/octohost/ubuntu-12.0.4-3.8).
+I built my source image from [this related repo](https://github.com/octohost/ubuntu-14.04).
 
 ### Vagrant Build
 
@@ -104,6 +102,7 @@ The cookbook provides the following Rake tasks for testing:
     rake build                        # Syntax check and build all Packer targets
     rake build_ami                    # Syntax check and build AMI
     rake build_droplet                # Syntax check and build Droplet
+    rake build_gce                    # Syntax check and build Google Compute Image
     rake build_openstack              # Syntax check and build Openstack Image
     rake build_vagrant                # Syntax check and build Vagrant box
     rake cleanup_vendor               # Cleanup Vendor directory
@@ -111,8 +110,8 @@ The cookbook provides the following Rake tasks for testing:
     rake integration                  # Alias for kitchen:all
     rake kitchen:all                  # Run all test instances
     rake kitchen:default-ubuntu-1204  # Run default-ubuntu-1204 test instance
-    rake kitchen:default-ubuntu-1304  # Run default-ubuntu-1304 test instance
-    rake kitchen:default-ubuntu-1310  # Run default-ubuntu-1310 test instance
+    rake kitchen:default-ubuntu-1404  # Run default-ubuntu-1404 test instance
+    rake knife_solo                   # Usage: rake knife_solo user={user} ip={ip.address.goes.here}
     rake lint                         # Lint Chef cookbooks
     rake rubocop                      # Run rubocop tests
     rake spec                         # Run ChefSpec examples
