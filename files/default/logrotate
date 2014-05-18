@@ -2,6 +2,7 @@
         daily
         missingok
         rotate 52
+        copytruncate
         compress
         delaycompress
         notifempty
