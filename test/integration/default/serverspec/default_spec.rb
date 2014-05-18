@@ -17,6 +17,10 @@ describe 'octohost::default' do
     it { should be_listening }
   end
 
+  describe command('docker info') do
+    its(:stdout) { should match /Storage Driver: aufs/ }
+  end
+
   describe service('redis-server') do
     it { should be_enabled }
     it { should be_running }
