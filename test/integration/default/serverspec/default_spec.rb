@@ -18,7 +18,7 @@ describe 'octohost::default' do
   end
 
   describe command('docker info') do
-    its(:stdout) { should match /Storage Driver: aufs/ }
+    it { should return_stdout 'Storage Driver: aufs' }
   end
 
   describe service('redis-server') do
