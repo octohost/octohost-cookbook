@@ -7,11 +7,11 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "opscode-ubuntu-12.04"
+  config.vm.box = "opscode-ubuntu-14.04"
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # 
+  #
   # IMPORTANT NOTE:
   #
   # *.octodev.io points to 192.168.62.86 - you can use it for your own
@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Install: vagrant plugin install vagrant-omnibus
   config.omnibus.chef_version = :latest
-  
+
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "./vendor/cookbooks"
     chef.add_recipe "octohost"
