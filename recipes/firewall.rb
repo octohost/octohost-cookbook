@@ -21,7 +21,7 @@
 include_recipe 'firewall::default'
 
 package 'ufw' do
- action :install
+  action :install
 end
 
 firewall 'ufw' do
