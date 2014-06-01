@@ -20,6 +20,10 @@
 
 include_recipe 'firewall::default'
 
+package 'ufw' do
+ action :install
+end
+
 firewall 'ufw' do
   action :enable
 end
