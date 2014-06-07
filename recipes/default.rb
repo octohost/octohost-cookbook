@@ -32,6 +32,8 @@ include_recipe 'docker::default'
 
 include_recipe 'etcd::default'
 
+include_recipe 'octohost::etcd'
+
 include_recipe 'redis::default'
 
 include_recipe 'octohost::redis'
