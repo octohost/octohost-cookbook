@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'rspec/expectations'
 require 'chefspec'
 require 'chefspec/berkshelf'
 require 'coveralls'
@@ -21,7 +22,7 @@ RSpec.configure do |config|
   config.platform = 'ubuntu'
 
   # Specify the operating version to mock Ohai data from
-  config.version = '12.04'
+  config.version = '14.04'
 
   # Use color output for RSpec
   config.color_enabled = true

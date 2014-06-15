@@ -11,6 +11,7 @@ gem "chef-taste"
 gem 'coveralls', require: false
 gem 'chef-sugar'
 gem 'knife-solo'
+gem 'hashie', '2.1.1'
 
 group :integration do
   gem "test-kitchen", "~> 1.0"
