@@ -66,7 +66,7 @@ describe 'octohost::default' do
     it { should be_file }
   end
 
-  describe service('etcd') do
+  describe service('consul') do
     it { should be_enabled }
     it { should be_running }
   end

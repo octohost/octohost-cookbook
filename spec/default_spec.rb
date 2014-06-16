@@ -29,8 +29,8 @@ describe 'octohost::default' do
     expect(chef_run).to include_recipe('gitreceive::default')
   end
 
-  it 'includes the `etcd` recipe' do
-    expect(chef_run).to include_recipe('etcd::default')
+  it 'includes the `consul` recipe' do
+    expect(chef_run).to include_recipe('consul::default')
   end
 
   it 'installs the proxy proxy.conf' do
