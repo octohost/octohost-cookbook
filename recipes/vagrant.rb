@@ -32,8 +32,8 @@ bash 'update domain name in /etc/default/octohost' do
   user 'root'
   cwd '/tmp'
   code <<-EOH
-    sed -i '5s/.*/PUBLIC_IP=\"192\.168\.62\.86\"/' /etc/default/octohost
-    sed -i '6s/.*/PRIVATE_IP=\"192\.168\.62\.86\"/' /etc/default/octohost
-    sed -i '8s/.*/DOMAIN_SUFFIX=\"octodev\.io\"/' /etc/default/octohost
+    sed -i '8s/.*/PUBLIC_IP=\"192\.168\.62\.86\"/' /etc/default/octohost
+    sed -i '9s/.*/PRIVATE_IP=\"192\.168\.62\.86\"/' /etc/default/octohost
+    sed -i '11s/.*/DOMAIN_SUFFIX=\"octodev\.io\"/' /etc/default/octohost
   EOH
 end

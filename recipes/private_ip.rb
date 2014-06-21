@@ -22,7 +22,7 @@ bash 'Update PRIVATE_IP for everybody except EC2.' do
   user 'root'
   cwd '/tmp'
   code <<-EOH
-    sed -i '6s/.*/PRIVATE_IP="\$PUBLIC_IP"/' /etc/default/octohost
+    sed -i '9s/.*/PRIVATE_IP="\$PUBLIC_IP"/' /etc/default/octohost
   EOH
 end
 

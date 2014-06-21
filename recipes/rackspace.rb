@@ -22,7 +22,7 @@ bash 'Update PRIVATE_IP for rackspace.' do
   user 'root'
   cwd '/tmp'
   code <<-EOH
-    sed -i '6s/.*/PRIVATE_IP=\$(ifconfig eth1 \| grep \"inet addr\" \| cut --delimiter=\":\" -f 2 \| cut --delimiter=\" \" -f 1)/' /etc/default/octohost
+    sed -i '9s/.*/PRIVATE_IP=\$(ifconfig eth1 \| grep \"inet addr\" \| cut --delimiter=\":\" -f 2 \| cut --delimiter=\" \" -f 1)/' /etc/default/octohost
   EOH
 end
 
