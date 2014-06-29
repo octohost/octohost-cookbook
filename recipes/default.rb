@@ -28,6 +28,13 @@ include_recipe 'ubuntu_base::default'
 
 include_recipe 'octobase::default'
 
+include_recipe 'ruby2::default'
+
+# Set Ruby2.1 as default.
+execute 'set ruby2.1 as alternatives' do
+  command 'update-alternatives --set ruby /usr/bin/ruby2.1 && update-alternatives --set gem /usr/bin/gem2.1'
+end
+
 include_recipe 'docker::default'
 
 include_recipe 'consul::default'

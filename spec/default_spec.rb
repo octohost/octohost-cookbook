@@ -17,6 +17,10 @@ describe 'octohost::default' do
     expect(chef_run).to include_recipe('docker::default')
   end
 
+  it 'includes the `ruby2` recipe' do
+    expect(chef_run).to include_recipe('ruby2::default')
+  end
+
   it 'includes the `redis` recipe' do
     expect(chef_run).to include_recipe('redis::default')
   end
