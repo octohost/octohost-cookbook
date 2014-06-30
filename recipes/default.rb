@@ -35,6 +35,10 @@ execute 'set ruby2.1 as alternatives' do
   command 'update-alternatives --set ruby /usr/bin/ruby2.1 && update-alternatives --set gem /usr/bin/gem2.1'
 end
 
+gem_package 'octoconfig' do
+  options('--no-ri --no-rdoc')
+end
+
 include_recipe 'docker::default'
 
 include_recipe 'consul::default'
@@ -50,5 +54,7 @@ include_recipe 'octohost::firewall' unless ec2?
 include_recipe 'octohost::private_ip' unless ec2?
 
 include_recipe 'octohost::rackspace' if rackspace?
+
+include_recipe 'octohost::vhost'
 
 include_recipe 'octohost::final'
