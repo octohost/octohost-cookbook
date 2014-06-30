@@ -39,15 +39,9 @@ include_recipe 'docker::default'
 
 include_recipe 'consul::default'
 
-include_recipe 'redis::default'
-
-include_recipe 'octohost::redis'
-
 include_recipe 'openresty::default'
 
 include_recipe 'octohost::openresty'
-
-include_recipe 'octohost::tentacles'
 
 include_recipe 'gitreceive::default'
 
