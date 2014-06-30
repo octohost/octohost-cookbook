@@ -21,15 +21,6 @@ describe 'octohost::default' do
     it { should return_stdout 'Storage Driver: aufs' }
   end
 
-  describe service('redis-server') do
-    it { should be_enabled }
-    it { should be_running }
-  end
-
-  describe port(6379) do
-    it { should be_listening }
-  end
-
   describe service('proxy') do
     it { should be_enabled }
   end
@@ -38,20 +29,8 @@ describe 'octohost::default' do
     it { should be_listening }
   end
 
-  describe port(81) do
-    it { should be_listening }
-  end
-
   describe port(443) do
     it { should be_listening }
-  end
-
-  describe command('docker images') do
-    it { should return_stdout /octohost\/tentacles/ } # rubocop:disable AmbiguousRegexpLiteral
-  end
-
-  describe file('/etc/init/tentacles.conf') do
-    it { should be_file }
   end
 
   describe file('/usr/local/bin/ngxtop') do
