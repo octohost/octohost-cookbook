@@ -2,9 +2,6 @@
 #
 # Disable UFW
 ufw disable
-# Restart tentacles to get the right IP address.
-octo tentacles stop
-octo tentacles start
 # Cleanup to shrink vagrant images.
 apt-get update
 apt-get upgrade -y
