@@ -26,5 +26,6 @@ bash 'pull default virtualhost' do
     docker tag octohost/00default octoprod/00default
     /usr/bin/octo domains:set 00default default.octodev.io
     /usr/bin/octo start 00default
+    /usr/bin/octo services:register
   EOH
 end
