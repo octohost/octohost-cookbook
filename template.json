@@ -23,10 +23,12 @@
             },
             {
               "type": "openstack",
-              "region": "dfw",
+              "provider": "rackspace-us",
+              "openstack_provider": "rackspace",
+              "region": "iad",
               "ssh_username": "root",
               "image_name": "octohost-chef {{timestamp}}",
-              "source_image": "6028c5ea-e9ea-4edc-8bf2-1a0ddd74eebb",
+              "source_image": "10ad1831-987f-416e-af08-4ad5939d0862",
               "flavor": "3"
             },
             {
