@@ -29,3 +29,5 @@ google.pem
 nodes/
 
 coverage/
+
+.envrc
