@@ -7,7 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "opscode-ubuntu-14.04"
+  config.vm.box = "chef/ubuntu-14.04"
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
