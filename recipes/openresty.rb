@@ -29,6 +29,14 @@ end
   end
 end
 
+directory '/etc/nginx/additional-vhosts' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  recursive true
+  action :create
+end
+
 cookbook_file '/etc/nginx/proxy.conf' do
   source 'proxy.conf'
   owner 'root'
