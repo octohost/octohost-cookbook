@@ -93,4 +93,7 @@ describe 'octohost::default' do
     expect(chef_run).to create_remote_file('/usr/local/share/GeoIP/GeoLiteCity.dat.gz')
   end
 
+  before  do
+    stub_command("grep 'x:999' /etc/passwd").and_return(0)
+  end
 end
