@@ -17,8 +17,8 @@ describe 'octohost::default' do
     it { should be_listening }
   end
 
-  describe command('docker info') do
-    it { should return_stdout 'Storage Driver: aufs' }
+  describe command('docker info | grep "Storage Driver: aufs"') do
+    it { should return_exit_status 0 }
   end
 
   describe service('proxy') do
@@ -52,5 +52,13 @@ describe 'octohost::default' do
 
   describe package('sysdig') do
     it { should be_installed }
+  end
+
+  describe file('/usr/local/bin/nsenter') do
+    it { should be_file }
+  end
+
+  describe file('/usr/local/bin/docker-enter') do
+    it { should be_file }
   end
 end
