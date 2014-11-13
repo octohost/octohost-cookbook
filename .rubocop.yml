@@ -6,5 +6,6 @@ AllCops:
     - foodcritic/**
     - cookbooks/**
     - Rakefile
+    - Guardfile
 SingleSpaceBeforeFirstArg:
   Enabled: false

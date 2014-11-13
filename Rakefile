@@ -16,7 +16,7 @@ desc "Run ChefSpec examples"
 RSpec::Core::RakeTask.new(:spec)
 
 desc "Run all tests"
-task :test => [:cleanup_vendor, :lint, :food_extra, :spec, :tailor, :taste, :rubocop]
+task :test => [:cleanup_vendor, :lint, :food_extra, :spec, :rubocop]
 task :default => :test
 
 desc "Run tailor tests"
@@ -41,11 +41,11 @@ task :cleanup_vendor do
 end
 
 task :berksinstall do
-  sh 'berks install --path vendor/cookbooks'
+  sh 'berks vendor vendor/cookbooks'
 end
 
 desc "Syntax check and build Vagrant box"
-task :build_vagrant => [:cleanup_vendor, :cleanup_vagrant, :lint, :spec, :tailor, :taste, :rubocop, :berksinstall, :vagrantup]
+task :build_vagrant => [:cleanup_vendor, :cleanup_vagrant, :lint, :spec, :rubocop, :berksinstall, :vagrantup]
 task :vagrant => :build_vagrant
 
 task :vagrantup do
@@ -62,7 +62,7 @@ task :build => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop, :packe
 task :packer => [:cleanup_vendor, :packer_build]
 
 task :packer_build do
-  sh 'berks install --path vendor/cookbooks'
+  sh 'berks vendor vendor/cookbooks'
   sh 'packer build template.json'
 end
 
@@ -72,7 +72,7 @@ task :build_ami => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop, :p
 task :packer_ami => [:cleanup_vendor, :packer_build_ami]
 
 task :packer_build_ami do
-  sh 'berks install --path vendor/cookbooks'
+  sh 'berks vendor vendor/cookbooks'
   sh 'packer build -only=amazon-ebs template.json'
 end
 
@@ -82,7 +82,7 @@ task :build_droplet => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop
 task :packer_droplet => [:cleanup_vendor, :packer_build_droplet]
 
 task :packer_build_droplet do
-  sh 'berks install --path vendor/cookbooks'
+  sh 'berks vendor vendor/cookbooks'
   sh 'packer build -only=digitalocean template.json'
 end
 
@@ -92,7 +92,7 @@ task :build_openstack => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :ruboc
 task :packer_openstack => [:cleanup_vendor, :packer_build_openstack]
 
 task :packer_build_openstack do
-  sh 'berks install --path vendor/cookbooks'
+  sh 'berks vendor vendor/cookbooks'
   sh 'packer build -only=openstack template.json'
 end
 
@@ -102,7 +102,7 @@ task :build_gce => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop, :p
 task :packer_gce => [:cleanup_vendor, :packer_build_gce]
 
 task :packer_build_gce do
-  sh 'berks install --path vendor/cookbooks'
+  sh 'berks vendor vendor/cookbooks'
   sh 'packer build -only=googlecompute template.json'
 end
 

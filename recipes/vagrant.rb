@@ -37,15 +37,3 @@ bash 'update domain name in /etc/default/octohost' do
     sed -i '11s/.*/DOMAIN_SUFFIX=\"octodev\.io\"/' /etc/default/octohost
   EOH
 end
-
-bash 'update consul config' do
-  user 'root'
-  cwd '/tmp'
-  code <<-EOH
-    service consul stop
-    cd /var/cache/consul/ && rm -rf *
-    sed -i '5s/.*/  \"node_name\": \"octodev-master\",/' /etc/consul/config.json
-    sed -i '8s/.*/  \"advertise_addr\": \"192\.168\.62\.86\",/' /etc/consul/config.json
-    service consul start
-  EOH
-end

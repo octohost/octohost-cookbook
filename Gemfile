@@ -1,21 +1,27 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "berkshelf",  "~> 2.0"
-gem "chef",       "~> 11.0"
-gem "chefspec",   "~> 3.4"
-gem "foodcritic", "~> 3.0"
-gem "rake"
-gem "tailor"
-gem "rubocop"
-gem "chef-taste"
-gem 'coveralls', require: false
+gem 'chef', '~> 11.16.4'
+gem 'rake'
+gem 'json', '~> 1.8.1'
 gem 'chef-sugar'
 gem 'knife-solo'
-gem 'hashie', '2.1.1'
 
-group :integration do
-  gem "test-kitchen", "~> 1.0"
-  gem "kitchen-vagrant"
-  gem "guard-kitchen"
-  gem "kitchen-docker"
+group :workflow do
+  gem 'berkshelf', '~> 3.1.5'
+  gem 'eventmachine', '1.0.3'
+  gem 'unf'
+end
+
+group :development do
+  gem 'guard'
+  gem 'pry'
+end
+
+group :ci do
+  gem 'chefspec', '~> 4.0'
+  gem 'foodcritic', '~> 4.0'
+  gem 'rubocop', '~> 0.26'
+  gem 'rubocop-checkstyle_formatter', require: false
+  gem 'coveralls'
+  gem 'tailor'
 end

@@ -43,6 +43,10 @@ include_recipe 'docker::default'
 
 include_recipe 'consul::default'
 
+include_recipe 'consul::ui'
+
+include_recipe 'octohost::consul'
+
 include_recipe 'openresty::default'
 
 include_recipe 'octohost::openresty'

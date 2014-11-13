@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Borrowed from: https://gist.github.com/progrium/b45a9fe697dd68c3ea0f
+# All credit to @progrium.
+
+if [ -f /etc/default/octohost ]; then
+  . /etc/default/octohost
+else
+  CONSUL_SERVER="localhost:8500"
+fi
+
+main() {
+  case "$1" in
+    info)
+      curl -s "$CONSUL_SERVER/v1/kv/$2" | jq -r .[]
+      ;;
+    get)
+      curl -s "$CONSUL_SERVER/v1/kv/$2" | jq -r .[].Value | base64 -d | sed 's/$/\n/'
+      ;;
+    set)
+      curl -s -X PUT -d "$3" "$CONSUL_SERVER/v1/kv/$2" > /dev/null
+      ;;
+    del)
+      curl -s -X DELETE -d "$3" "$CONSUL_SERVER/v1/kv/$2" > /dev/null
+      ;;
+    ls)
+      if [[ "$2" == "" ]]; then
+        curl -s "$CONSUL_SERVER/v1/kv/?keys" | jq -r .[]
+      else
+        curl -s "$CONSUL_SERVER/v1/kv/$2/?keys" | jq -r .[] | sed "s|$2/||"
+      fi
+      ;;
+    service:set)
+      curl -s -X PUT -d "$2" "$CONSUL_SERVER/v1/agent/service/register"
+      ;;
+    service:del)
+      curl -s "$CONSUL_SERVER/v1/agent/service/deregister/$2"
+      ;;
+    service:health)
+      STATUS=$(curl -s "$CONSUL_SERVER/v1/health/service/$2" | jq '.[].Checks[0].Status' | cut -d '"' -f 2)
+      echo $STATUS
+      ;;
+    services)
+      curl -s "$CONSUL_SERVER/v1/agent/services" | jq -c '.[]'
+      ;;
+    services:catalog)
+      for service in $( curl -s "$CONSUL_SERVER/v1/catalog/services" | jq 'keys' | jq '.[]' ); do
+        SERVICE=$(echo $service | cut -d '"' -f 2)
+        curl -s "$CONSUL_SERVER/v1/catalog/service/$SERVICE" | jq -c '.[]'
+      done
+      ;;
+  esac
+}
+
+main "$@"
