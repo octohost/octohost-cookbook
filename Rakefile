@@ -57,7 +57,7 @@ task :cleanup_vagrant do
 end
 
 desc "Syntax check and build all Packer targets"
-task :build => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop, :packer]
+task :build => [:cleanup_vendor, :lint, :spec, :rubocop, :packer]
 
 task :packer => [:cleanup_vendor, :packer_build]
 
@@ -67,17 +67,18 @@ task :packer_build do
 end
 
 desc "Syntax check and build AMI"
-task :build_ami => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop, :packer_ami]
+task :build_ami => [:cleanup_vendor, :lint, :spec, :rubocop, :packer_ami]
 
 task :packer_ami => [:cleanup_vendor, :packer_build_ami]
 
 task :packer_build_ami do
+  sh 'rm -rf vendor'
   sh 'berks vendor vendor/cookbooks'
   sh 'packer build -only=amazon-ebs template.json'
 end
 
 desc "Syntax check and build Droplet"
-task :build_droplet => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop, :packer_droplet]
+task :build_droplet => [:cleanup_vendor, :lint, :spec, :rubocop, :packer_droplet]
 
 task :packer_droplet => [:cleanup_vendor, :packer_build_droplet]
 
@@ -87,7 +88,7 @@ task :packer_build_droplet do
 end
 
 desc "Syntax check and build Openstack Image"
-task :build_openstack => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop, :packer_openstack]
+task :build_openstack => [:cleanup_vendor, :lint, :spec, :rubocop, :packer_openstack]
 
 task :packer_openstack => [:cleanup_vendor, :packer_build_openstack]
 
@@ -97,7 +98,7 @@ task :packer_build_openstack do
 end
 
 desc "Syntax check and build Google Compute Image"
-task :build_gce => [:cleanup_vendor, :lint, :spec, :tailor, :taste, :rubocop, :packer_gce]
+task :build_gce => [:cleanup_vendor, :lint, :spec, :rubocop, :packer_gce]
 
 task :packer_gce => [:cleanup_vendor, :packer_build_gce]
 
