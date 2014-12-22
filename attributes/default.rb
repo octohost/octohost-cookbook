@@ -31,8 +31,11 @@ default['consul']['client_address'] = '192.168.62.86'
 default['consul']['datacenter'] = 'dc1'
 default['consul']['enable_syslog'] = true
 default['consul']['node_name'] = 'octodev-master'
+default['consul']['install_dir'] = '/usr/local/bin'
+default['consul']['recursor'] = '8.8.8.8'
+default['consul']['service_user'] = 'root'
+default['consul']['service_group'] = 'root'
 
-default['consul']['install_dir'] = '/var/consul_web_ui'
 default['consul']['serve_ui'] = true
 
 default['jq']['url'] = 'http://stedolan.github.io/jq/download/linux64/jq'
