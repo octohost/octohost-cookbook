@@ -2,8 +2,6 @@
 require 'rspec/expectations'
 require 'chefspec'
 require 'chefspec/berkshelf'
-require 'coveralls'
-Coveralls.wear!
 
 RSpec.configure do |config|
   # Specify the path for Chef Solo to find cookbooks

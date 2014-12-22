@@ -1,11 +1,18 @@
-LineLength:
-  Max: 200
+# Rubocop,  we're buddies and all,  but we're going to have to disagree on the following -
+
 AllCops:
   Exclude:
-    - vendor/**
-    - foodcritic/**
-    - cookbooks/**
-    - Rakefile
     - Guardfile
-SingleSpaceBeforeFirstArg:
+    - Rakefile
+    - foodcritic/**/*
+    - cookbooks/**/*
+    - vendor/**/*
+
+Metrics/LineLength:
+  Max: 200
+
+Style/SingleSpaceBeforeFirstArg:
   Enabled: false
+
+Style/WordArray:
+  MinSize: 5
