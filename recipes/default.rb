@@ -59,6 +59,4 @@ include_recipe 'octohost::private_ip' unless ec2?
 
 include_recipe 'octohost::rackspace' if rackspace?
 
-include_recipe 'octohost::vhost'
-
 include_recipe 'octohost::final'
