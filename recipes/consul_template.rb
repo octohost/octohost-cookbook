@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-remote_file '/tmp/consul-template.tar.gz' do
+remote_file "#{Chef::Config[:file_cache_path]}/consul-template.tar.gz" do
   source 'https://github.com/hashicorp/consul-template/releases/download/v0.5.0/consul-template_0.5.0_linux_amd64.tar.gz'
   checksum '88501439dc7b3f257b8faf9b978b12d50c355cc25ceaa8901a4051cda4848995'
 end
@@ -27,7 +27,7 @@ bash 'expand consul-template' do
   user 'root'
   cwd '/tmp'
   code <<-EOH
-    tar -xvf /tmp/consul-template.tar.gz -C /usr/local/bin/ --strip-components=1
+    tar -xvf #{Chef::Config[:file_cache_path]}/consul-template.tar.gz -C /usr/local/bin/ --strip-components=1
   EOH
   not_if { File.exist?('/usr/local/bin/consul-template') }
 end
