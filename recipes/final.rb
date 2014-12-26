@@ -38,3 +38,17 @@ group 'docker' do
   members 'git'
   append true
 end
+
+# Thanks http://programster.blogspot.ca/2014/09/docker-implementing-container-memory.html
+
+bash 'remove warning when adding memory limits for docker containers' do
+  user 'root'
+  cwd '/tmp'
+  code <<-EOH
+    SEARCH='GRUB_CMDLINE_LINUX=""'
+    REPLACE='GRUB_CMDLINE_LINUX="cgroup_enable=memory swapaccount=1"'
+    FILEPATH="/etc/default/grub"
+    sed -i "s;$SEARCH;$REPLACE;" $FILEPATH
+    update-grub
+  EOH
+end
