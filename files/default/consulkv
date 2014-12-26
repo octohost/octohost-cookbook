@@ -31,9 +31,9 @@ main() {
       ;;
     ls)
       if [[ "$2" == "" ]]; then
-        curl -s "$CONSUL_SERVER/v1/kv/?keys?token=$CONSUL_TOKEN" | jq -r .[]
+        curl -s "$CONSUL_SERVER/v1/kv/?keys&token=$CONSUL_TOKEN" | jq -r .[]
       else
-        curl -s "$CONSUL_SERVER/v1/kv/$2/?keys?token=$CONSUL_TOKEN" | jq -r .[] | sed "s|$2/||"
+        curl -s "$CONSUL_SERVER/v1/kv/$2/?keys&token=$CONSUL_TOKEN" | jq -r .[] | sed "s|$2/||"
       fi
       ;;
     service:set)
@@ -52,7 +52,7 @@ main() {
     services:catalog)
       for service in $( curl -s "$CONSUL_SERVER/v1/catalog/services?token=$CONSUL_TOKEN" | jq 'keys' | jq '.[]' ); do
         SERVICE=$(echo $service | cut -d '"' -f 2)
-        curl -s "$CONSUL_SERVER/v1/catalog/service/$SERVICE" | jq -c '.[]'
+        curl -s "$CONSUL_SERVER/v1/catalog/service/$SERVICE?token=$CONSUL_TOKEN" | jq -c '.[]'
       done
       ;;
   esac
