@@ -38,3 +38,19 @@ file '/usr/local/bin/consul-template' do
   mode 00755
   action :create
 end
+
+directory '/etc/nginx/containers' do
+  owner 'root'
+  group 'root'
+  mode 00755
+  recursive true
+  action :create
+end
+
+directory '/etc/nginx/templates' do
+  owner 'root'
+  group 'root'
+  mode 00755
+  recursive true
+  action :create
+end
