@@ -1,0 +1,9 @@
+{
+  "watches": [
+    {
+      "type": "service",
+      "service": "REPLACEME",
+      "handler": "sudo consul-template -config /etc/nginx/templates/REPLACEME.cfg -once"
+    }
+  ]
+}
