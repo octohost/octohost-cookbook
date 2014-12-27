@@ -1,0 +1,15 @@
+upstream %SERVICE% {
+{{range service "%SERVICE%"}}
+  server {{ .Address }}:{{ .Port }};
+{{end}}
+}
+server {
+  listen 80;
+  listen 443 ssl spdy;
+  include /etc/nginx/ssl.conf;
+  server_name {{key "octohost/%SERVICE%/DOMAINS"}};
+  location / {
+    include /etc/nginx/location.conf;
+    proxy_pass http://%SERVICE%;
+  }
+}
