@@ -1,7 +1,6 @@
 upstream %SERVICE% {
-{{range service "%SERVICE%"}}
-  server {{ .Address }}:{{ .Port }};
-{{end}}
+  {{range service "%SERVICE%"}}server {{ .Address }}:{{ .Port }};
+  {{end}}
 }
 server {
   listen 80;
