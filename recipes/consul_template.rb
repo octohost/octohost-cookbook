@@ -54,3 +54,17 @@ directory '/etc/nginx/templates' do
   recursive true
   action :create
 end
+
+cookbook_file '/etc/nginx/template.ctmpl' do
+  owner 'root'
+  group 'root'
+  mode 00755
+  action :create
+end
+
+cookbook_file '/etc/nginx/template.cfg' do
+  owner 'root'
+  group 'root'
+  mode 00755
+  action :create
+end
