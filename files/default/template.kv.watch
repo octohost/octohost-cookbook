@@ -1,0 +1,9 @@
+{
+  "watches": [
+    {
+      "type": "keyprefix",
+      "prefix": "octohost/REPLACEME",
+      "handler": "sudo /usr/bin/octo reload REPLACEME"
+    }
+  ]
+}

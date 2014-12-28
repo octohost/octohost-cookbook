@@ -75,3 +75,10 @@ cookbook_file '/etc/nginx/template.watch' do
   mode 00755
   action :create
 end
+
+cookbook_file '/etc/nginx/template.kv.watch' do
+  owner 'root'
+  group 'root'
+  mode 00755
+  action :create
+end
