@@ -19,8 +19,8 @@
 #
 
 remote_file "#{Chef::Config[:file_cache_path]}/consul-template.tar.gz" do
-  source 'https://github.com/hashicorp/consul-template/releases/download/v0.5.0/consul-template_0.5.0_linux_amd64.tar.gz'
-  checksum '88501439dc7b3f257b8faf9b978b12d50c355cc25ceaa8901a4051cda4848995'
+  source 'https://github.com/hashicorp/consul-template/releases/download/v0.5.1/consul-template_0.5.1_linux_amd64.tar.gz'
+  checksum '059574057cebbc95423b99cad18c5198195506ac1f743c8b0e17f60870ed992a'
 end
 
 bash 'expand consul-template' do
