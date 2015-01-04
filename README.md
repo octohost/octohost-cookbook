@@ -39,6 +39,17 @@ Recipes
 
 Builds the [octohost](https://www.octohost.io) server using Chef.
 
+To get started with this repo:
+
+```
+git clone https://github.com/octohost/octohost-cookbook.git
+cd octohost-cookbook
+bundle install
+berks install
+```
+
+Then you should be able to build any of the images.
+
 ### Packer Build
 
 In order to build an Amazon AMI, DigitalOcean Droplet or Rackspace OpenStack image, you will need accounts for each. Export these values to get Packer to honor them automatically:
