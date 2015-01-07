@@ -37,3 +37,10 @@ bash 'update domain name in /etc/default/octohost' do
     sed -i '11s/.*/DOMAIN_SUFFIX=\"octodev\.io\"/' /etc/default/octohost
   EOH
 end
+
+cookbook_file '/etc/nginx/additional-vhosts/consul.conf' do
+  owner 'root'
+  group 'root'
+  mode 00644
+  notifies :restart, 'service[proxy]', :delayed
+end
