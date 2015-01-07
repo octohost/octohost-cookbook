@@ -1,5 +1,6 @@
 upstream REPLACEME {
   {{range service "REPLACEME"}}server {{ .Address }}:{{ .Port }};
+  {{else}}server 127.0.0.1:404;
   {{end}}
 }
 server {
