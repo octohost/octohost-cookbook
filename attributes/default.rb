@@ -38,3 +38,6 @@ default['consul']['serve_ui'] = true
 
 default['jq']['url'] = 'http://stedolan.github.io/jq/download/linux64/jq'
 default['jq']['path'] = '/usr/bin/jq'
+
+default['octohost']['consul-template']['version'] = '0.5.1'
+default['octohost']['consul-template']['url'] = "https://github.com/hashicorp/consul-template/releases/download/v#{node['octohost']['consul-template']['version']}/consul-template_#{node['octohost']['consul-template']['version']}_linux_amd64.tar.gz"

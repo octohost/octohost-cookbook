@@ -18,25 +18,12 @@
 # limitations under the License.
 #
 
-remote_file "#{Chef::Config[:file_cache_path]}/consul-template.tar.gz" do
-  source 'https://github.com/hashicorp/consul-template/releases/download/v0.5.1/consul-template_0.5.1_linux_amd64.tar.gz'
-  checksum '059574057cebbc95423b99cad18c5198195506ac1f743c8b0e17f60870ed992a'
-end
-
-bash 'expand consul-template' do
-  user 'root'
-  cwd '/tmp'
-  code <<-EOH
-    tar -xvf #{Chef::Config[:file_cache_path]}/consul-template.tar.gz -C /usr/local/bin/ --strip-components=1
-  EOH
-  not_if { File.exist?('/usr/local/bin/consul-template') }
-end
-
-file '/usr/local/bin/consul-template' do
-  owner 'root'
-  group 'root'
+ark 'consul-template' do
+  url node['octohost']['consul-template']['url']
+  has_binaries ['consul-template']
+  version node['octohost']['consul-template']['version']
   mode 00755
-  action :create
+  action :install
 end
 
 directory '/etc/nginx/containers' do
