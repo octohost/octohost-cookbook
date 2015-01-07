@@ -45,14 +45,6 @@ cookbook_file '/etc/nginx/proxy.conf' do
   notifies :restart, 'service[proxy]', :delayed
 end
 
-cookbook_file '/etc/nginx/containers.conf' do
-  source 'containers.conf'
-  owner 'root'
-  group 'root'
-  mode '0644'
-  notifies :restart, 'service[proxy]', :delayed
-end
-
 cookbook_file '/etc/nginx/ssl.conf' do
   source 'ssl.conf'
   owner 'root'
