@@ -63,9 +63,8 @@ In order to build an Amazon AMI, DigitalOcean Droplet or Rackspace OpenStack ima
     export AWS_ACCESS_KEY="long-random-string"
     export AWS_SECRET_KEY="another-even-longer-long-random-string"
 
-    # Digital Ocean - get these here: https://cloud.digitalocean.com/api_access
-    export DIGITALOCEAN_CLIENT_ID="long-random-string"
-    export DIGITALOCEAN_API_KEY="another-long-random-string"
+    # Digital Ocean - get these here: https://cloud.digitalocean.com/settings/applications
+    export DIGITALOCEAN_API_TOKEN="long-random-string"
 
 You may have to use a different source image for Rackspace - Rackspace doesn't allow you to share them.
 

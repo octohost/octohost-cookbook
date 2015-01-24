@@ -16,9 +16,10 @@
             },
             {
               "type": "digitalocean",
-              "image_id": "5141286",
-              "size_id": "63",
-              "region": "nyc1",
+              "image": "ubuntu-14-04-x64",
+              "droplet_name": "octohost-chef-{{timestamp}}",
+              "size": "1gb",
+              "region": "nyc3",
               "snapshot_name": "octohost-chef {{timestamp}}"
             },
             {
