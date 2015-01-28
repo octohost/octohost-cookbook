@@ -1,13 +1,12 @@
 language: ruby
-
 rvm:
-  - 2.0.0
-  - 2.1.5
-
+- 2.0.0
+- 2.1.5
 install: bundle install
-
 script: bundle exec rake test
-
 branches:
   only:
-    - master
+  - master
+notifications:
+  slack:
+    secure: fsHnbqcvrbRmPgDsxiJL4OJJ033FXpbdmT7cvG7HbBmWCQzZdoSMdbFCPdB8B1iITeO+c0++5Rszdd/+BG5YHjTTD4Qf8otFI0CVTYs0LxM7QlD05KrYCAiHcRipsp4LleaiH+4UxUrhRkstRz4i4NvXdwaspaLoW9tMroxr2aQ=
