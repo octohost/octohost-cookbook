@@ -6,6 +6,7 @@ gem 'foodcritic', '~> 4.0.0'
 gem 'rake', '>= 10.2'
 gem 'rubocop', '= 0.27.1'
 gem 'knife-solo'
+gem 'chef-sugar'
 
 group :integration do
   gem 'guard', '>= 2.6'
@@ -16,5 +17,4 @@ group :integration do
   gem 'guard-rubocop', '>= 1.1'
   gem 'test-kitchen'
   gem 'kitchen-vagrant'
-  gem 'chef-sugar'
 end

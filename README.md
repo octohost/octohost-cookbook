@@ -6,15 +6,15 @@ Requirements
 
 ### Required to build:
 
-1. [Packer](http://www.packer.io/downloads.html) - 0.5+ - for AWS, Rackspace and DigitalOcean.
-2. [Vagrant](http://www.vagrantup.com/downloads.html) - 1.5.0+
+1. [Packer](http://www.packer.io/downloads.html) - 0.7.5+ - for AWS, Rackspace and DigitalOcean.
+2. [Vagrant](http://www.vagrantup.com/downloads.html) - 1.7.0+
 3. [VirtualBox](https://www.virtualbox.org/wiki/Downloads) - 4.3+
-4. Ruby 1.9+ with Bundler and Rake - `cd octohost-cookbook; bundle install`
+4. Ruby 2.0+ with Bundler and Rake - `cd octohost-cookbook; bundle install` - also works with [ChefDK](https://downloads.chef.io/chef-dk/).
 5. A unix like platform - this is built on OS X and may not work on Windows. \(Patches are welcome.\)
 
 ### Platform:
 
-Supported on Ubuntu 12.04LTS and 14.04LTS.
+Supported on Ubuntu 14.04LTS.
 
 ### Cookbooks:
 
@@ -24,6 +24,7 @@ Supported on Ubuntu 12.04LTS and 14.04LTS.
 4. [redis](https://github.com/darron/redis-cookbook)
 5. [openresty](https://github.com/darron/openresty-cookbook)
 6. [gitreceive](https://github.com/darron/gitreceive-cookbook)
+7. [consul](https://github.com/johnbellone/consul-cookbook)
 
 Attributes
 ----------
