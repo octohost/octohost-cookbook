@@ -3,7 +3,6 @@
 AllCops:
   Exclude:
     - Guardfile
-    - Rakefile
     - foodcritic/**/*
     - cookbooks/**/*
     - vendor/**/*

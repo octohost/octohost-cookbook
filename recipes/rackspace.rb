@@ -28,6 +28,7 @@ end
 
 execute 'install keys to push to git user' do # ~FC041
   command "curl -L #{node['git']['keys']} >> /home/git/.ssh/authorized_keys"
+  not_if { File.exist?('/home/git/.ssh/authorized_keys') }
 end
 
 bash 'start tentacles' do

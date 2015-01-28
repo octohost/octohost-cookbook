@@ -18,9 +18,7 @@
 # limitations under the License.
 #
 
-execute 'apt-get-update' do
-  command 'apt-get update'
-end
+include_recipe 'apt'
 
 include_recipe 'chef-sugar::default'
 
@@ -31,7 +29,7 @@ include_recipe 'octobase::default'
 include_recipe 'ruby2::default'
 
 # Set Ruby2.1 as default.
-execute 'set ruby2.1 as alternatives' do
+execute 'set ruby2.1 as alternatives' do # ~ETSY004
   command 'update-alternatives --set ruby /usr/bin/ruby2.1 && update-alternatives --set gem /usr/bin/gem2.1'
 end
 
