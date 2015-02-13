@@ -61,4 +61,20 @@ describe 'octohost::default' do
   describe file('/usr/local/bin/docker-enter') do
     it { should be_file }
   end
+
+  describe file('/var/archive/octohost') do
+    it { should be_directory }
+  end
+
+  describe file('/var/archive/octohost-cookbook') do
+    it { should be_directory }
+  end
+
+  describe file('/var/archive/archive.tgz') do
+    it { should be_file }
+  end
+
+  describe file('/var/archive/version') do
+    it { should be_file }
+  end
 end
