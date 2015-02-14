@@ -42,7 +42,7 @@ directory '/etc/nginx/templates' do
   action :create
 end
 
-%w(/etc/nginx/template.ctmpl /etc/nginx/template.cfg /etc/nginx/template.watch /etc/nginx/template.kv.watch).each do |tmpl|
+%w(/etc/nginx/template.ctmpl /etc/nginx/templateSSL.ctmpl /etc/nginx/template.cfg /etc/nginx/template.watch /etc/nginx/template.kv.watch).each do |tmpl|
   cookbook_file tmpl do
     owner 'root'
     group 'root'
