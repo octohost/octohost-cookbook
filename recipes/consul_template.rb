@@ -42,7 +42,7 @@ directory '/etc/nginx/templates' do
   action :create
 end
 
-%w(
+  %w(
     /etc/nginx/template.ctmpl
     /etc/nginx/templateSSL.ctmpl
     /etc/nginx/template.cfg
