@@ -39,6 +39,8 @@ include_recipe 'consul::default'
 
 include_recipe 'consul::ui'
 
+include_recipe 'octohost::logging'
+
 include_recipe 'octohost::consul'
 
 include_recipe 'octohost::consul_template'
