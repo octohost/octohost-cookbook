@@ -42,7 +42,7 @@ remote_file "#{Chef::Config[:file_cache_path]}/chefdk.deb" do
   group 'root'
 end
 
-dpkg_package '/tmp/chefdk.deb' do
+dpkg_package "#{Chef::Config[:file_cache_path]}/chefdk.deb" do
   action :install
 end
 
