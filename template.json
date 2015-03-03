@@ -45,7 +45,7 @@
 
     "provisioners": [{
         "type": "shell",
-        "inline": ["apt-get clean && apt-get update"]
+        "inline": ["sudo apt-get clean && sudo apt-get update"]
       },{
       "type": "chef-solo",
       "install_command": "curl -L https://www.opscode.com/chef/install.sh | sudo bash -s -- -v 11.16.4",
