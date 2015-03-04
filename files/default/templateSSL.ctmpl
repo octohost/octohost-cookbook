@@ -1,0 +1,21 @@
+upstream REPLACEME {
+  {{range service "REPLACEME"}}server {{ .Address }}:{{ .Port }};
+  {{else}}server 127.0.0.1:404;
+  {{end}}
+}
+server {
+  listen   80;
+  server_name {{key "octohost/REPLACEME/DOMAINS"}};
+  return 301 https://$server_name$request_uri;
+}
+server {
+  listen 443 ssl spdy;
+  server_name {{key "octohost/REPLACEME/DOMAINS"}};
+  ssl_certificate  {{key "octohost/REPLACEME/SSL_CERTIFICATE"}};
+  ssl_certificate_key {{key "octohost/REPLACEME/SSL_KEY"}};
+  location / {
+    include /etc/nginx/location.conf;
+    proxy_pass http://REPLACEME;
+  }
+
+}
