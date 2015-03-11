@@ -37,6 +37,37 @@ directory '/etc/nginx/additional-vhosts' do
   action :create
 end
 
+directory '/etc/nginx/containers' do
+  owner 'root'
+  group 'root'
+  mode 00755
+  recursive true
+  action :create
+end
+
+directory '/etc/nginx/templates' do
+  owner 'root'
+  group 'root'
+  mode 00755
+  recursive true
+  action :create
+end
+
+%w(
+  /etc/nginx/template.ctmpl
+  /etc/nginx/templateSSL.ctmpl
+  /etc/nginx/template.cfg
+  /etc/nginx/template.watch
+  /etc/nginx/template.kv.watch
+).each do |tmpl|
+  cookbook_file tmpl do
+    owner 'root'
+    group 'root'
+    mode 00755
+    action :create
+  end
+end
+
 cookbook_file '/etc/nginx/proxy.conf' do
   source 'proxy.conf'
   owner 'root'

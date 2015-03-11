@@ -45,6 +45,8 @@ include_recipe 'octohost::consul'
 
 include_recipe 'octohost::consul_template'
 
+include_recipe 'octohost::templates'
+
 include_recipe 'openresty::default'
 
 include_recipe 'octohost::openresty'
