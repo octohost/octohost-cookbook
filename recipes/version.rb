@@ -59,10 +59,19 @@ bash 'get SHA values' do
   EOH
 end
 
+# https://github.com/chef-cookbooks/mysql/issues/279
+# https://github.com/berkshelf/berkshelf-api/issues/112
+# Final: https://github.com/chef-cookbooks/mysql/issues/286
+Encoding.default_external = Encoding::UTF_8
+
 bash 'vendor all of the cookbooks' do
   user 'root'
   cwd '/var/archive/octohost-cookbook'
   code <<-EOH
+    apt-get -y install locales
+    echo 'en_US.UTF-8 UTF-8'>>/etc/locale.gen
+    locale-gen
+    export LANG en_US.UTF-8
     eval "$(chef shell-init bash)"
     berks vendor vendor/cookbooks
   EOH

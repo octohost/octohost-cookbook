@@ -21,16 +21,8 @@ describe 'octohost::default' do
     expect(chef_run).to include_recipe('ruby2::default')
   end
 
-  it 'includes the `openresty` recipe' do
-    expect(chef_run).to include_recipe('openresty::default')
-  end
-
   it 'includes the `gitreceive` recipe' do
     expect(chef_run).to include_recipe('gitreceive::default')
-  end
-
-  it 'includes the `consul` recipe' do
-    expect(chef_run).to include_recipe('consul::default')
   end
 
   it 'installs the proxy proxy.conf' do

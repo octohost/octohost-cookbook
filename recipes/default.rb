@@ -22,6 +22,8 @@ include_recipe 'apt'
 
 include_recipe 'chef-sugar::default'
 
+include_recipe 'octohost::apt'
+
 include_recipe 'ubuntu_base::default'
 
 include_recipe 'octobase::default'
@@ -35,10 +37,6 @@ end
 
 include_recipe 'docker::default'
 
-include_recipe 'consul::default'
-
-include_recipe 'consul::ui'
-
 include_recipe 'octohost::logging'
 
 include_recipe 'octohost::consul'
@@ -46,8 +44,6 @@ include_recipe 'octohost::consul'
 include_recipe 'octohost::consul_template'
 
 include_recipe 'octohost::templates'
-
-include_recipe 'openresty::default'
 
 include_recipe 'octohost::openresty'
 

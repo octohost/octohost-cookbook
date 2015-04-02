@@ -1,9 +1,9 @@
 # encoding: utf-8
 #
 # Cookbook Name:: octohost
-# Recipe:: consul_template
+# Recipe:: apt
 #
-# Copyright (C) 2014, Darron Froese <darron@froese.org>
+# Copyright (C) 2015, Darron Froese <darron@froese.org>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,4 +18,6 @@
 # limitations under the License.
 #
 
-package 'consul-template'
+packagecloud_repo 'darron/octohost' do
+  type 'deb'
+end

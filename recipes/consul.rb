@@ -18,6 +18,10 @@
 # limitations under the License.
 #
 
+package 'consul'
+
+package 'consul-webui'
+
 remote_file node['jq']['path'] do
   source node['jq']['url']
   owner 'root'

@@ -18,6 +18,14 @@
 # limitations under the License.
 #
 
+package 'libgd2-noxpm-dev'
+
+package 'libssl0.9.8'
+
+package 'openresty' do
+  action :install
+end
+
 service 'nginx' do
   supports :status => true # rubocop:disable HashSyntax
   action [:disable, :stop]
