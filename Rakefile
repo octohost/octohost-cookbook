@@ -67,6 +67,15 @@ task :packer_build_ami do
   sh 'packer build -only=amazon-ebs template.json'
 end
 
+desc 'Syntax check and build Azure image.'
+task build_azure: [:cleanup_vendor, :packer_build_azure]
+
+task :packer_build_azure do
+  sh 'rm -rf vendor'
+  sh 'berks vendor vendor/cookbooks'
+  sh 'packer build -only=azure template.json'
+end
+
 desc 'Syntax check and build Droplet'
 task build_droplet: [:cleanup_vendor, :lint, :spec, :rubocop, :packer_droplet]
 

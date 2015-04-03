@@ -2,7 +2,8 @@
     "variables": {
         "aws_access_key": "",
         "aws_secret_key": "",
-        "project_id": "{{env `PROJECT_ID`}}"
+        "project_id": "{{env `PROJECT_ID`}}",
+        "publish_settings_path": "{{env `AZURE_PUBLISH_SETTINGS`}}"
     },
 
     "builders": [{
@@ -41,6 +42,18 @@
               "zone": "us-central1-f",
               "image_name": "octohost-{{timestamp}}",
               "disk_size": 40
+            },
+            {
+              "type": "azure",
+              "publish_settings_path":    "{{user `publish_settings_path`}}",
+              "subscription_name":    "Free Trial",
+              "storage_account":  "octohost",
+              "storage_account_container":    "images",
+              "os_type":  "Linux",
+              "os_image_label":   "Ubuntu Server 14.04 LTS",
+              "location": "South Central US",
+              "instance_size":    "Medium",
+              "user_image_label": "octohost-{{timestamp}}"
             }],
 
     "provisioners": [{
