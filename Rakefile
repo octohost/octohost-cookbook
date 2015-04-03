@@ -112,8 +112,8 @@ end
 
 desc 'Usage: rake knife_solo user={user} ip={ip.address.goes.here}'
 task :knife_solo do
-  sh 'rm -rf cookbooks && rm -rf nodes'
-  sh 'mkdir cookbooks && berks install --path cookbooks'
+  sh 'rm -rf vendor && rm -rf nodes'
+  sh 'mkdir vendor && berks vendor vendor/cookbooks'
   sh "mkdir nodes && echo '{\"run_list\":[\"octohost::default\"]}' > nodes/#{ENV['ip']}.json"
   sh "bundle exec knife solo bootstrap #{ENV['user']}@#{ENV['ip']}"
 end
