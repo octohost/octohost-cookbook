@@ -45,7 +45,7 @@ include_recipe 'octohost::consul_template'
 
 include_recipe 'octohost::templates'
 
-include_recipe 'octohost::openresty'
+include_recipe 'octohost::nginx'
 
 include_recipe 'gitreceive::default'
 

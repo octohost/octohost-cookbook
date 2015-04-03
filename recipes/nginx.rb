@@ -1,9 +1,9 @@
 # encoding: utf-8
 #
 # Cookbook Name:: octohost
-# Recipe:: openresty
+# Recipe:: nginx
 #
-# Copyright (C) 2014, Darron Froese <darron@froese.org>
+# Copyright (C) 2015, Darron Froese <darron@froese.org>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ package 'libgd2-noxpm-dev'
 
 package 'libssl0.9.8'
 
-package 'openresty' do
+package 'nginx' do
   action :install
 end
 

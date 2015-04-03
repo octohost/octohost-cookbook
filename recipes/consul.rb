@@ -3,7 +3,7 @@
 # Cookbook Name:: octohost
 # Recipe:: consul
 #
-# Copyright (C) 2013, Darron Froese <darron@froese.org>
+# Copyright (C) 2015, Darron Froese <darron@froese.org>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,6 +19,22 @@
 #
 
 package 'consul'
+
+directory '/etc/consul.d' do
+  owner 'root'
+  group 'root'
+  mode 00755
+  recursive true
+  action :create
+end
+
+template '/etc/consul.d/default.json' do
+  source 'consul-config.erb'
+  owner 'root'
+  group 'root'
+  mode 00600
+  variables consul: node['consul']
+end
 
 package 'consul-webui'
 
