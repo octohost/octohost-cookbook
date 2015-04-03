@@ -1,4 +1,5 @@
 upstream REPLACEME {
+  ip_hash;
   {{range service "REPLACEME"}}server {{ .Address }}:{{ .Port }};
   {{else}}server 127.0.0.1:404;
   {{end}}
