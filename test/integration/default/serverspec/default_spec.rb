@@ -18,7 +18,7 @@ describe 'octohost::default' do
   end
 
   describe command('docker info | grep "Storage Driver: aufs"') do
-    it { should return_exit_status 0 }
+    its(:exit_status) { should eq 0 }
   end
 
   describe service('proxy') do
@@ -42,6 +42,14 @@ describe 'octohost::default' do
   end
 
   describe file('/usr/local/share/GeoIP/GeoIP.dat') do
+    it { should be_file }
+  end
+
+  describe file('/usr/bin/octo') do
+    it { should be_file }
+  end
+
+  describe file('/etc/default/octohost') do
     it { should be_file }
   end
 

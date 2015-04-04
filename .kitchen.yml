@@ -2,11 +2,23 @@
 driver:
   name: vagrant
 
+driver_config:
+  aws_access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+  aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+  aws_ssh_key_id: <%= ENV['AWS_KEYPAIR_NAME'] %>
+
 provisioner:
   name: chef_solo
 
 platforms:
   - name: ubuntu-14.04
+    driver_plugin: vagrant
+  - name: ubuntu-14.04-do
+    driver_plugin: digitalocean
+    driver_config:
+      region: nyc3
+      size: 1gb
+      image: ubuntu-14-04-x64
 
 suites:
   - name: default
