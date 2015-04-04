@@ -18,11 +18,12 @@
 # limitations under the License.
 #
 
-bash 'Update PRIVATE_IP for everybody except EC2.' do
+# This works better for Azure and shouldn't affect anything else.
+bash 'Update PRIVATE_IP as the eth0 interface.' do
   user 'root'
   cwd '/tmp'
   code <<-EOH
-    sed -i '9s/.*/PRIVATE_IP="\$PUBLIC_IP"/' /etc/default/octohost
+    sed -i '9s/.*/PRIVATE_IP=\$(ifconfig eth0 \| grep \"inet addr\" \| cut --delimiter=\":\" -f 2 \| cut --delimiter=\" \" -f 1)/' /etc/default/octohost
   EOH
 end
 
