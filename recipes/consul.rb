@@ -36,6 +36,11 @@ template '/etc/consul.d/default.json' do
   variables consul: node['consul']
 end
 
+service 'consul' do
+  supports :status => true
+  action [ :enable, :start ]
+end
+
 package 'consul-webui'
 
 remote_file node['jq']['path'] do
