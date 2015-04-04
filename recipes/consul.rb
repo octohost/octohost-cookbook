@@ -37,8 +37,8 @@ template '/etc/consul.d/default.json' do
 end
 
 service 'consul' do
-  supports :status => true
-  action [ :enable, :start ]
+  supports status: true
+  action [:enable, :start]
 end
 
 package 'consul-webui'
