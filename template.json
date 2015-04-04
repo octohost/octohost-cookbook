@@ -2,7 +2,8 @@
     "variables": {
         "aws_access_key": "",
         "aws_secret_key": "",
-        "project_id": "{{env `PROJECT_ID`}}",
+        "project_id": "{{env `GCE_PROJECT_ID`}}",
+        "gce_account_file": "{{env `GCE_ACCOUNT_FILE`}}",
         "publish_settings_path": "{{env `AZURE_PUBLISH_SETTINGS`}}"
     },
 
@@ -37,7 +38,7 @@
             {
               "type": "googlecompute",
               "project_id": "{{user `project_id`}}",
-              "account_file": "google.json",
+              "account_file": "{{user `gce_account_file`}}",
               "source_image": "ubuntu-1404-trusty-v20150128",
               "zone": "us-central1-f",
               "image_name": "octohost-{{timestamp}}",

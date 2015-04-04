@@ -13,12 +13,20 @@ provisioner:
 platforms:
   - name: ubuntu-14.04
     driver_plugin: vagrant
-  - name: ubuntu-14.04-do
+  - name: digitalocean
     driver_plugin: digitalocean
     driver_config:
       region: nyc3
       size: 1gb
       image: ubuntu-14-04-x64
+  - name: gce
+    driver_plugin: gce
+    driver_config:
+      google_client_email: <%= ENV['GCE_CLIENT_EMAIL'] %>
+      google_key_location: <%= ENV['GCE_ACCOUNT_FILE'] %>
+      google_project: <%= ENV['GCE_PROJECT_ID'] %>
+      region: us-central1-f
+      image_name: ubuntu-1404-trusty-v20150128
 
 suites:
   - name: default
