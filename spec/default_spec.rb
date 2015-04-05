@@ -83,7 +83,5 @@ describe 'octohost::default' do
 
   before  do
     stub_command("grep 'x:999' /etc/passwd").and_return(0)
-    stub_command('test -L /usr/local/bin/consul').and_return(0)
-    stub_command('test -L /var/cache/octohost/ui').and_return(0)
   end
 end
