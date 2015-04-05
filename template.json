@@ -32,7 +32,7 @@
               "region": "iad",
               "ssh_username": "root",
               "image_name": "octohost-chef {{timestamp}}",
-              "source_image": "10ad1831-987f-416e-af08-4ad5939d0862",
+              "source_image": "bf182836-221e-47fa-ae58-cc6f4f96b6cb",
               "flavor": "3"
             },
             {

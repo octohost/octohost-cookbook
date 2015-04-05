@@ -5,6 +5,12 @@ driver:
 provisioner:
   name: chef_solo
 
+# Base image for EC2 and Rackspace is built here:
+#   https://github.com/octohost/ubuntu-14.04
+#
+# The EC2 image is public and can be used by anyone.
+# Rackspace images can't be shared - so you need to build your own.
+
 platforms:
   - name: ubuntu-14.04
     driver_plugin: vagrant
@@ -33,6 +39,17 @@ platforms:
       availability_zone: us-west-2b
       flavor_id: c3.large
       username: ubuntu
+  - name: rackspace
+    driver_plugin: rackspace
+    driver_config:
+      rackspace_username: <%= ENV['OS_USERNAME'] %>
+      rackspace_api_key: <%= ENV['OS_PASSWORD'] %>
+      require_chef_omnibus: false
+      image_id: bf182836-221e-47fa-ae58-cc6f4f96b6cb
+      flavor_id: 3
+      server_name: octohost
+      public_key_path: <%= ENV['HOME'] %>/.ssh/id_dsa.pub
+      rackspace_region: iad
 
 suites:
   - name: default
