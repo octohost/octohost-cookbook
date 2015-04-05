@@ -1,7 +1,6 @@
 #!/usr/bin/env rake
 # encoding: utf-8
 require 'foodcritic'
-require 'kitchen'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 
@@ -33,7 +32,7 @@ RSpec::Core::RakeTask.new(:spec) do |t|
 end
 
 desc 'Run all tests'
-task test: [:cleanup_vendor, :style]
+task test: [:cleanup_vendor, :style, :spec]
 task default: :test
 
 desc 'Run rubocop tests'
@@ -134,5 +133,3 @@ task :knife_solo do
   sh "mkdir nodes && echo '{\"run_list\":[\"octohost::default\"]}' > nodes/#{ENV['ip']}.json"
   sh "bundle exec knife solo bootstrap #{ENV['user']}@#{ENV['ip']}"
 end
-
-task default: %w(style spec)
