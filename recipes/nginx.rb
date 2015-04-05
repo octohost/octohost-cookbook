@@ -27,7 +27,7 @@ package 'nginx' do
 end
 
 service 'nginx' do
-  supports :status => true # rubocop:disable HashSyntax
+  supports status: true
   action [:disable, :stop]
 end
 
@@ -40,9 +40,30 @@ end
 directory '/etc/nginx/additional-vhosts' do
   owner 'root'
   group 'root'
-  mode '0755'
+  mode 00755
   recursive true
   action :create
+end
+
+directory '/var/www/default' do
+  owner 'root'
+  group 'root'
+  mode 00755
+  recursive true
+  action :create
+end
+
+cookbook_file '/var/www/default/index.html' do
+  owner 'root'
+  group 'root'
+  mode 00644
+end
+
+cookbook_file '/etc/nginx/additional-vhosts/00default.conf' do
+  owner 'root'
+  group 'root'
+  mode 00644
+  notifies :restart, 'service[proxy]', :delayed
 end
 
 directory '/etc/nginx/containers' do
@@ -164,7 +185,7 @@ bash 'unzip the GeoIP files' do
 end
 
 service 'proxy' do
-  supports :status => true # rubocop:disable HashSyntax
+  supports status: true
   action [:enable, :start]
 end
 
