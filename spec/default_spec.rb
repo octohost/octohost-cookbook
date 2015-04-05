@@ -3,7 +3,7 @@ require 'spec_helper'
 
 # Write unit tests with ChefSpec - https://github.com/sethvargo/chefspec#readme
 describe 'octohost::default' do
-  let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe) }
+  cached(:chef_run) { ChefSpec::SoloRunner.new.converge(described_recipe) }
 
   it 'includes the `ubuntu_base` recipe' do
     expect(chef_run).to include_recipe('ubuntu_base::default')
