@@ -17,10 +17,6 @@ describe 'octohost::default' do
     expect(chef_run).to include_recipe('docker::default')
   end
 
-  it 'includes the `ruby2` recipe' do
-    expect(chef_run).to include_recipe('ruby2::default')
-  end
-
   it 'includes the `gitreceive` recipe' do
     expect(chef_run).to include_recipe('gitreceive::default')
   end
