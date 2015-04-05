@@ -2,11 +2,6 @@
 driver:
   name: vagrant
 
-driver_config:
-  aws_access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
-  aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
-  aws_ssh_key_id: <%= ENV['AWS_KEYPAIR_NAME'] %>
-
 provisioner:
   name: chef_solo
 
@@ -27,6 +22,17 @@ platforms:
       google_project: <%= ENV['GCE_PROJECT_ID'] %>
       region: us-central1-f
       image_name: ubuntu-1404-trusty-v20150128
+  - name: ec2
+    driver_plugin: ec2
+    driver_config:
+      aws_access_key_id: <%= ENV['AWS_ACCESS_KEY'] %>
+      aws_secret_access_key: <%= ENV['AWS_SECRET_KEY'] %>
+      aws_ssh_key_id: <%= ENV['AWS_SSH_KEY_ID'] %>
+      image_id: ami-f35078c3
+      region: us-west-2
+      availability_zone: us-west-2b
+      flavor_id: c3.large
+      username: ubuntu
 
 suites:
   - name: default
