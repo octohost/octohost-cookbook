@@ -51,4 +51,5 @@ bash 'remove warning when adding memory limits for docker containers' do
     sed -i "s;$SEARCH;$REPLACE;" $FILEPATH
     update-grub
   EOH
+  not_if { rackspace? }
 end
