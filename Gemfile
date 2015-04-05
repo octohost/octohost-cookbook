@@ -17,4 +17,8 @@ group :integration do
   gem 'guard-rubocop', '>= 1.1'
   gem 'test-kitchen'
   gem 'kitchen-vagrant'
+  gem 'kitchen-gce'
+  gem 'kitchen-ec2'
+  gem 'kitchen-rackspace'
+  gem 'kitchen-digitalocean'
 end

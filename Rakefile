@@ -1,22 +1,39 @@
+#!/usr/bin/env rake
 # encoding: utf-8
 require 'foodcritic'
+require 'kitchen'
 require 'rspec/core/rake_task'
+require 'rubocop/rake_task'
 
-desc 'Run Foodcritic lint checks'
-FoodCritic::Rake::LintTask.new(:lint) do |t|
-  t.options = { fail_tags: ['any'] }
+# Style tests. RuboCop and Foodcritic
+namespace :style do
+  desc 'Run Ruby style checks'
+  RuboCop::RakeTask.new(:ruby)
+
+  desc 'Run Chef style checks'
+  FoodCritic::Rake::LintTask.new(:chef) do |t|
+    t.options = {
+      fail_tags: ['any']
+    }
+  end
+
+  desc 'Run extra Foodcritic rulesets'
+  task :chef_extra do
+    sh 'foodcritic -f any -I foodcritic/* .' if Dir.exist? 'foodcritic'
+  end
 end
 
-desc 'Run extra Foodcritic rulesets'
-task :food_extra do
-  sh 'if [ "$(ls -A foodcritic/)" ]; then bundle exec foodcritic -f any -I foodcritic/* .; fi'
-end
+desc 'Run all style checks'
+task style: ['style:ruby', 'style:chef', 'style:chef_extra']
 
+# Rspec and ChefSpec
 desc 'Run ChefSpec examples'
-RSpec::Core::RakeTask.new(:spec)
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.verbose = false
+end
 
 desc 'Run all tests'
-task test: [:cleanup_vendor, :lint, :food_extra, :spec, :rubocop]
+task test: [:cleanup_vendor, :style]
 task default: :test
 
 desc 'Run rubocop tests'
@@ -35,7 +52,7 @@ task :berksinstall do
 end
 
 desc 'Syntax check and build Vagrant box'
-task build_vagrant: [:cleanup_vendor, :cleanup_vagrant, :lint, :spec, :rubocop, :berksinstall, :vagrantup]
+task build_vagrant: [:cleanup_vendor, :cleanup_vagrant, :style, :berksinstall, :vagrantup]
 task vagrant: :build_vagrant
 
 task :vagrantup do
@@ -47,7 +64,7 @@ task :cleanup_vagrant do
 end
 
 desc 'Syntax check and build all Packer targets'
-task build: [:cleanup_vendor, :lint, :spec, :rubocop, :packer]
+task build: [:cleanup_vendor, :style, :packer]
 
 task packer: [:cleanup_vendor, :packer_build]
 
@@ -57,7 +74,7 @@ task :packer_build do
 end
 
 desc 'Syntax check and build AMI'
-task build_ami: [:cleanup_vendor, :lint, :spec, :rubocop, :packer_ami]
+task build_ami: [:cleanup_vendor, :style, :packer_ami]
 
 task packer_ami: [:cleanup_vendor, :packer_build_ami]
 
@@ -77,7 +94,7 @@ task :packer_build_azure do
 end
 
 desc 'Syntax check and build Droplet'
-task build_droplet: [:cleanup_vendor, :lint, :spec, :rubocop, :packer_droplet]
+task build_droplet: [:cleanup_vendor, :style, :packer_droplet]
 
 task packer_droplet: [:cleanup_vendor, :packer_build_droplet]
 
@@ -87,7 +104,7 @@ task :packer_build_droplet do
 end
 
 desc 'Syntax check and build Openstack Image'
-task build_openstack: [:cleanup_vendor, :lint, :spec, :rubocop, :packer_openstack]
+task build_openstack: [:cleanup_vendor, :style, :packer_openstack]
 
 task packer_openstack: [:cleanup_vendor, :packer_build_openstack]
 
@@ -97,7 +114,7 @@ task :packer_build_openstack do
 end
 
 desc 'Syntax check and build Google Compute Image'
-task build_gce: [:cleanup_vendor, :lint, :spec, :rubocop, :packer_gce]
+task build_gce: [:cleanup_vendor, :style, :packer_gce]
 
 task packer_gce: [:cleanup_vendor, :packer_build_gce]
 
@@ -118,12 +135,4 @@ task :knife_solo do
   sh "bundle exec knife solo bootstrap #{ENV['user']}@#{ENV['ip']}"
 end
 
-begin
-  require 'kitchen/rake_tasks'
-  Kitchen::RakeTasks.new
-
-  desc 'Alias for kitchen:all'
-  task integration: 'kitchen:all'
-rescue LoadError
-  puts '>>>>> Kitchen gem not loaded, omitting tasks' unless ENV['CI']
-end
+task default: %w(style spec)
