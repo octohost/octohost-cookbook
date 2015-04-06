@@ -46,10 +46,8 @@ firewall_rule 'https' do
   notifies :enable, 'firewall[ufw]'
 end
 
-bash 'allow connections from docker0' do
-  user 'root'
-  cwd '/tmp'
-  code <<-EOH
-  /usr/sbin/ufw allow in on docker0
-  EOH
+firewall_rule 'docker0' do
+  direction :in
+  interface 'docker0'
+  action    :allow
 end

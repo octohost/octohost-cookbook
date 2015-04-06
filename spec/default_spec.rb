@@ -21,64 +21,8 @@ describe 'octohost::default' do
     expect(chef_run).to include_recipe('gitreceive::default')
   end
 
-  it 'installs the proxy proxy.conf' do
-    expect(chef_run).to create_cookbook_file('/etc/nginx/proxy.conf')
-  end
-
-  it 'installs the proxy logrotate' do
-    expect(chef_run).to create_cookbook_file('/etc/logrotate.d/nginx')
-  end
-
-  it 'installs the proxy upstream.conf' do
-    expect(chef_run).to create_cookbook_file('/etc/nginx/upstream.conf')
-  end
-
-  it 'installs the proxy default' do
-    expect(chef_run).to create_cookbook_file('/etc/default/proxy')
-  end
-
-  it 'installs the proxy init.d' do
-    expect(chef_run).to create_cookbook_file('/etc/init.d/proxy')
-  end
-
-  it 'installs the proxy ssl.key' do
-    expect(chef_run).to create_cookbook_file('/etc/nginx/ssl.key')
-  end
-
-  it 'installs the proxy ssl.crt' do
-    expect(chef_run).to create_cookbook_file('/etc/nginx/ssl.crt')
-  end
-
-  it 'disables nginx' do
-    expect(chef_run).to disable_service('nginx')
-  end
-
-  it 'stops nginx' do
-    expect(chef_run).to stop_service('nginx')
-  end
-
-  it 'enables proxy' do
-    expect(chef_run).to enable_service('proxy')
-  end
-
-  it 'starts proxy' do
-    expect(chef_run).to start_service('proxy')
-  end
-
-  it 'installs python-pip' do
-    expect(chef_run).to install_package('python-pip')
-  end
-
-  it 'creates the GeopIP directory' do
-    expect(chef_run).to create_directory('/usr/local/share/GeoIP/')
-  end
-
-  it 'downloads the GeoIP country data file' do
-    expect(chef_run).to create_remote_file('/usr/local/share/GeoIP/GeoIP.dat.gz')
-  end
-
-  it 'downloads the GeoIP city data file' do
-    expect(chef_run).to create_remote_file('/usr/local/share/GeoIP/GeoLiteCity.dat.gz')
+  it 'includes the `python` recipe' do
+    expect(chef_run).to include_recipe('python::default')
   end
 
   before  do

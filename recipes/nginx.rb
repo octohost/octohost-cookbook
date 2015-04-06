@@ -18,6 +18,8 @@
 # limitations under the License.
 #
 
+include_recipe 'python'
+
 package 'libgd2-noxpm-dev'
 
 package 'libssl0.9.8'
@@ -189,13 +191,6 @@ service 'proxy' do
   action [:enable, :start]
 end
 
-# Add ngxtop
-package 'python-pip'
-
-bash 'install ngxtop' do
-  user 'root'
-  cwd '/tmp'
-  code <<-EOH
-    pip install ngxtop
-  EOH
+python_pip 'ngxtop' do
+  action :install
 end
