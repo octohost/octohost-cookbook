@@ -21,8 +21,6 @@
 default['vagrant']['keys'] = 'https://raw.github.com/nonfiction/keys/master/keys'
 default['git']['keys'] = 'https://raw.github.com/nonfiction/keys/master/gitreceive-keys'
 
-default['ruby']['version'] = '2.1'
-
 default['consul']['encrypt'] = 'p4T1eTQtKji/Df3VrMMLzg=='
 default['consul']['data_dir'] = '/var/cache/octohost'
 default['consul']['datacenter'] = 'dc1'
