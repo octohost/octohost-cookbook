@@ -21,10 +21,10 @@ Supported on Ubuntu 14.04LTS.
 1. apt
 2. [octobase](https://github.com/darron/octobase-cookbook)
 3. [docker](https://github.com/darron/docker-cookbook)
-4. [redis](https://github.com/darron/redis-cookbook)
-5. [openresty](https://github.com/darron/openresty-cookbook)
-6. [gitreceive](https://github.com/darron/gitreceive-cookbook)
-7. [consul](https://github.com/johnbellone/consul-cookbook)
+4. [gitreceive](https://github.com/darron/gitreceive-cookbook)
+5. firewall
+6. rsyslog
+7. packagecloud
 
 Attributes
 ----------
