@@ -13,10 +13,6 @@ describe 'octohost::default' do
     expect(chef_run).to include_recipe('octobase::default')
   end
 
-  it 'includes the `docker` recipe' do
-    expect(chef_run).to include_recipe('docker::default')
-  end
-
   it 'includes the `gitreceive` recipe' do
     expect(chef_run).to include_recipe('gitreceive::default')
   end
