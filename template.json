@@ -6,7 +6,9 @@
         "gce_account_file": "{{env `GCE_ACCOUNT_FILE`}}",
         "publish_settings_path": "{{env `AZURE_PUBLISH_SETTINGS`}}"
     },
-
+    "push": {
+      "name": "darron/octohost"
+    },
     "builders": [{
             "type": "amazon-ebs",
             "access_key": "{{user `aws_access_key`}}",
@@ -55,6 +57,17 @@
               "location": "South Central US",
               "instance_size":    "Medium",
               "user_image_label": "octohost-{{timestamp}}"
+            },
+            {
+              "type": "virtualbox-iso",
+              "guest_os_type": "Ubuntu_64",
+              "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.2-server-amd64.iso",
+              "iso_checksum": "83aabd8dcf1e8f469f3c72fff2375195",
+              "iso_checksum_type": "md5",
+              "ssh_username": "packer",
+              "ssh_password": "packer",
+              "ssh_wait_timeout": "30s",
+              "shutdown_command": "echo 'packer' | sudo -S shutdown -P now"
             }],
 
     "provisioners": [{
@@ -65,5 +78,16 @@
       "install_command": "curl -L https://www.opscode.com/chef/install.sh | sudo bash",
       "cookbook_paths": ["./vendor/cookbooks"],
       "run_list": [ "octohost" ]
-    }]
+    }],
+    "post-processors": [
+      {
+        "type": "atlas",
+        "token": "{{user `atlas_token`}}",
+        "artifact": "darron/octohost",
+        "artifact_type": "aws.ami",
+        "metadata": {
+          "created_at": "{{timestamp}}"
+        }
+      }
+    ]
 }
