@@ -9,6 +9,14 @@ describe 'octohost::final' do
     expect(chef_run).to modify_group('docker').with(members: ['git'])
   end
 
+  it 'stops the docker daemon' do
+    expect(chef_run).to stop_service('docker')
+  end
+
+  it 'removes the /etc/docker/key.json' do
+    expect(chef_run).to delete_file('/etc/docker/key.json')
+  end
+
   before  do
     #
   end

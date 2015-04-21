@@ -39,6 +39,14 @@ group 'docker' do
   append true
 end
 
+service 'docker' do
+  action [:stop]
+end
+
+file '/etc/docker/key.json' do
+  action :delete
+end
+
 # Thanks http://programster.blogspot.ca/2014/09/docker-implementing-container-memory.html
 
 bash 'remove warning when adding memory limits for docker containers' do
