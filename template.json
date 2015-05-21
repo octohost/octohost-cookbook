@@ -4,7 +4,8 @@
         "aws_secret_key": "",
         "project_id": "{{env `GCE_PROJECT_ID`}}",
         "gce_account_file": "{{env `GCE_ACCOUNT_FILE`}}",
-        "publish_settings_path": "{{env `AZURE_PUBLISH_SETTINGS`}}"
+        "publish_settings_path": "{{env `AZURE_PUBLISH_SETTINGS`}}",
+        "atlas_token": "{{env `ATLAS_TOKEN`}}"
     },
     "push": {
       "name": "darron/octohost"
