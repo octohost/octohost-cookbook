@@ -47,18 +47,6 @@
               "disk_size": 40
             },
             {
-              "type": "azure",
-              "publish_settings_path":    "{{user `publish_settings_path`}}",
-              "subscription_name":    "Free Trial",
-              "storage_account":  "octohost",
-              "storage_account_container":    "images",
-              "os_type":  "Linux",
-              "os_image_label":   "Ubuntu Server 14.04 LTS",
-              "location": "South Central US",
-              "instance_size":    "Medium",
-              "user_image_label": "octohost-{{timestamp}}"
-            },
-            {
               "type": "virtualbox-iso",
               "guest_os_type": "Ubuntu_64",
               "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.2-server-amd64.iso",
