@@ -66,5 +66,16 @@
       "install_command": "curl -L https://www.opscode.com/chef/install.sh | sudo bash",
       "cookbook_paths": ["./vendor/cookbooks"],
       "run_list": [ "octohost" ]
-    }]
+    }],
+    "post-processors": [
+      {
+        "type": "atlas",
+        "token": "{{user `atlas_token`}}",
+        "artifact": "darron/octohost",
+        "artifact_type": "aws.ami",
+        "metadata": {
+          "created_at": "{{timestamp}}"
+        }
+      }
+    ]
 }
