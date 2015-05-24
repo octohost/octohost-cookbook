@@ -47,11 +47,11 @@ describe 'octohost::nginx' do
   end
 
   it 'installs the nginx and consul templates' do
-    expect(chef_run).to create_cookbook_file('/etc/nginx/template.ctmpl')
-    expect(chef_run).to create_cookbook_file('/etc/nginx/templateSSL.ctmpl')
-    expect(chef_run).to create_cookbook_file('/etc/nginx/template.cfg')
-    expect(chef_run).to create_cookbook_file('/etc/nginx/template.watch')
-    expect(chef_run).to create_cookbook_file('/etc/nginx/template.kv.watch')
+    expect(chef_run).to create_cookbook_file('/etc/octohost/templates/nginx.ctmpl')
+    expect(chef_run).to create_cookbook_file('/etc/octohost/templates/nginx-ssl.ctmpl')
+    expect(chef_run).to create_cookbook_file('/etc/octohost/templates/consul-template.cfg')
+    expect(chef_run).to create_cookbook_file('/etc/octohost/templates/consul-service-watch.json')
+    expect(chef_run).to create_cookbook_file('/etc/octohost/templates/consul-kv-watch.json')
   end
 
   it 'installs the ssl.conf' do

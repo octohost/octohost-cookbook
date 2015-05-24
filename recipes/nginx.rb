@@ -85,11 +85,11 @@ directory '/etc/nginx/templates' do
 end
 
 %w(
-  /etc/nginx/template.ctmpl
-  /etc/nginx/templateSSL.ctmpl
-  /etc/nginx/template.cfg
-  /etc/nginx/template.watch
-  /etc/nginx/template.kv.watch
+  /etc/octohost/templates/nginx.ctmpl
+  /etc/octohost/templates/nginx-ssl.ctmpl
+  /etc/octohost/templates/consul-template.cfg
+  /etc/octohost/templates/consul-service-watch.json
+  /etc/octohost/templates/consul-kv-watch.json
 ).each do |tmpl|
   cookbook_file tmpl do
     owner 'root'
