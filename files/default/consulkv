@@ -21,7 +21,7 @@ main() {
       curl -s "$CONSUL_SERVER/v1/kv/$2?token=$CONSUL_TOKEN" | jq -r .[]
       ;;
     get)
-      curl -s "$CONSUL_SERVER/v1/kv/$2?token=$CONSUL_TOKEN" | jq -r .[].Value | base64 -d | sed 's/$/\n/'
+      curl -s "$CONSUL_SERVER/v1/kv/$2?token=$CONSUL_TOKEN" | jq -r .[].Value | base64 -d
       ;;
     set)
       curl -s -X PUT -d "$3" "$CONSUL_SERVER/v1/kv/$2?token=$CONSUL_TOKEN" > /dev/null
