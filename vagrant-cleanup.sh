@@ -7,6 +7,8 @@ ufw disable
 #apt-get upgrade -y
 apt-get -y autoremove
 apt-get -y clean
+rm -f /var/chef/cache/chefdk.deb
+rm -rf /var/lib/apt/lists/*
 dd if=/dev/zero of=/EMPTY bs=1M
 rm -f /EMPTY
 rm -rf /tmp/*
