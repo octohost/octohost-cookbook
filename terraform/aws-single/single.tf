@@ -8,6 +8,10 @@ resource "aws_instance" "master" {
     security_groups = ["${aws_security_group.octohost.name}"]
     key_name = "${var.key_name}"
 
+    root_block_device {
+      volume_size = 80
+    }
+
     tags {
       Name = "octohost-master"
     }
