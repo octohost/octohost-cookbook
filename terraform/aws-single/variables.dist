@@ -1,0 +1,21 @@
+variable "region" {
+    default = "us-west-2"
+}
+
+variable "size" {
+    default = "m3.medium"
+}
+
+variable "key_name" {
+    default = "key-name-goes-here"
+}
+
+variable "key_path" {
+    default = "/path/to/private/key/goes/here"
+}
+
+variable "amis" {
+    default = {
+        us-west-2 = "ami-8b0607bb"
+    }
+}
