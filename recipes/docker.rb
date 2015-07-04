@@ -31,5 +31,12 @@ cookbook_file '/etc/init/docker.conf' do
   owner 'root'
   group 'root'
   mode 00644
-  notifies :restart, 'service[docker]', :delayed
+  notifies :restart, 'service[docker]', :immediately
+end
+
+remote_file '/usr/local/bin/docker-machine' do
+  source 'https://github.com/docker/machine/releases/download/v0.3.0/docker-machine_linux-amd64'
+  owner 'root'
+  group 'root'
+  mode 00755
 end
