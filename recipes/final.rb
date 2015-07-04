@@ -47,6 +47,18 @@ file '/etc/docker/key.json' do
   action :delete
 end
 
+service 'consul' do
+  action [:stop]
+end
+
+bash 'empty out consul state' do
+  user 'root'
+  cwd '/tmp'
+  code <<-EOH
+    rm -rf /var/cache/octohost/*
+  EOH
+end
+
 # Thanks http://programster.blogspot.ca/2014/09/docker-implementing-container-memory.html
 
 bash 'remove warning when adding memory limits for docker containers' do
