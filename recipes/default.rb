@@ -54,6 +54,8 @@ include_recipe 'octohost::rackspace' if rackspace?
 
 include_recipe 'octohost::google_cloud' if gce?
 
+include_recipe 'octohost::digitalocean' if digitalocean?
+
 include_recipe 'octohost::final'
 
 include_recipe 'octohost::version'
