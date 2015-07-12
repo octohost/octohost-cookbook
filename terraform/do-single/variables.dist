@@ -1,0 +1,7 @@
+variable "do_token" {
+  default = "the-token-goes-here"
+}
+
+variable "image_id" {
+  default = "get-your-image-id"
+}
