@@ -1,9 +1,4 @@
 #!/bin/bash
 
-service docker stop
-rm -f /etc/docker/key.json
-service docker start
-
-service consul stop
-rm -rf /var/cache/octohost/*
-service consul start
+/usr/bin/octo docker:reset_key
+/usr/bin/octo consul:reset
