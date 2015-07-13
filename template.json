@@ -34,7 +34,7 @@
               "region": "iad",
               "ssh_username": "root",
               "image_name": "octohost-chef {{timestamp}}",
-              "source_image": "bf182836-221e-47fa-ae58-cc6f4f96b6cb",
+              "source_image": "28153eac-1bae-4039-8d9f-f8b513241efe",
               "flavor": "3"
             },
             {
@@ -72,7 +72,7 @@
 
     "provisioners": [{
         "type": "shell",
-        "inline": ["sudo apt-get clean && sudo apt-get update && sudo apt-get -y upgrade"]
+        "inline": ["apt-get clean && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::=\"--force-confdef\" -o Dpkg::Options::=\"--force-confold\" --force-yes -y upgrade"]
       },{
       "type": "chef-solo",
       "install_command": "curl -L https://www.opscode.com/chef/install.sh | sudo bash",
