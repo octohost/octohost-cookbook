@@ -1,0 +1,36 @@
+variable "os_username" {
+    default = "OS_USERNAME"
+}
+
+# NOTE: This is NOT your API Key - it's your password.
+variable "os_password" {
+  default = "use-your-password"
+}
+
+variable "os_auth_url" {
+    default = "https://identity.api.rackspacecloud.com/v2.0/"
+}
+
+variable "os_tenant_name" {
+  default = "OS_TENANT_NAME"
+}
+
+# CAPS does matter - or OS_REGION_NAME
+variable "os_region_name" {
+  default = "IAD"
+}
+
+# You should be able to see it with: nova image-list
+variable "image_id" {
+  default = "the-image-you-have-built"
+}
+
+# 2GB node - sensible default - or full list: nova flavor-list
+variable "flavor_id" {
+  default = "general1-2"
+}
+
+# nova keypair-list
+variable "key_pair" {
+  default = "name-of-key-pair-goes-here"
+}
