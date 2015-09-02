@@ -13,8 +13,8 @@
             "type": "amazon-ebs",
             "access_key": "{{user `aws_access_key`}}",
             "secret_key": "{{user `aws_secret_key` }}",
-            "region": "us-west-2",
-            "source_ami": "ami-51526761",
+            "region": "us-east-1",
+            "source_ami": "ami-2dcf7b46",
             "instance_type": "c3.large",
             "ssh_username": "ubuntu",
             "ami_name": "octohost-chef {{timestamp}}"
@@ -72,7 +72,7 @@
 
     "provisioners": [{
         "type": "shell",
-        "inline": ["apt-get clean && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::=\"--force-confdef\" -o Dpkg::Options::=\"--force-confold\" --force-yes -y upgrade"]
+        "inline": ["sudo apt-get clean && sudo apt-get update && DEBIAN_FRONTEND=noninteractive sudo apt-get -o Dpkg::Options::=\"--force-confdef\" -o Dpkg::Options::=\"--force-confold\" --force-yes -y upgrade"]
       },{
       "type": "chef-solo",
       "install_command": "curl -L https://www.opscode.com/chef/install.sh | sudo bash",
