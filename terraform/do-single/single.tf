@@ -4,9 +4,15 @@ provider "digitalocean" {
 
 resource "digitalocean_droplet" "octohost" {
   image = "${var.image_id}"
-  name = "octohost"
+  name = "${var.octohost_name}"
   region = "nyc3"
   size = "1gb"
   private_networking = true
-  ssh_keys = [ssh-keys-go-here]
+  ssh_keys = ["${var.ssh_key}"]
+
+  provisioner "remote-exec" {
+    scripts = [
+      "../scripts/consul-bootstrap-do-single.sh"
+    ]
+  }
 }

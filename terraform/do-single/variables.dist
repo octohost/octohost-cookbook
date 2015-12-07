@@ -5,3 +5,11 @@ variable "do_token" {
 variable "image_id" {
   default = "get-your-image-id"
 }
+
+variable "ssh_key" {
+  default = "put-your-ssh-key-id-here"
+}
+
+variable "octohost_name" {
+  default = "octohost"
+}
