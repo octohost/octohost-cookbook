@@ -28,7 +28,7 @@ include_recipe 'ubuntu_base::default'
 
 include_recipe 'octobase::default'
 
-include_recipe 'zfs_linux::default'
+# include_recipe 'zfs_linux::default'
 
 include_recipe 'octohost::vault'
 
