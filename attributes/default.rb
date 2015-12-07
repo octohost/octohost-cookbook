@@ -35,7 +35,4 @@ default['consul']['client_addr'] = '0.0.0.0'
 default['jq']['url'] = 'http://stedolan.github.io/jq/download/linux64/jq'
 default['jq']['path'] = '/usr/bin/jq'
 
-default['octohost']['consul-template']['version'] = '0.7.0'
-default['octohost']['consul-template']['url'] = "https://github.com/hashicorp/consul-template/releases/download/v#{node['octohost']['consul-template']['version']}/consul-template_#{node['octohost']['consul-template']['version']}_linux_amd64.tar.gz"
-
-default['octohost']['chefdk_url'] =  'https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.4.0-1_amd64.deb'
+default['octohost']['chefdk_url'] = 'https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.10.0-1_amd64.deb'
