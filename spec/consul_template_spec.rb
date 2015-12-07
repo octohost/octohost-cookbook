@@ -9,7 +9,7 @@ describe 'octohost::consul_template' do
     expect(chef_run).to install_package('consul-template')
   end
 
-  before  do
+  before do
     #
   end
 end

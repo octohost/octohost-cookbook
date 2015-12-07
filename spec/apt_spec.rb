@@ -9,7 +9,7 @@ describe 'octohost::apt' do
     expect(chef_run).to create_packagecloud_repo('darron/octohost')
   end
 
-  before  do
+  before do
     #
   end
 end

@@ -17,7 +17,7 @@ describe 'octohost::docker' do
     expect(chef_run).to create_cookbook_file('/etc/init/docker.conf')
   end
 
-  before  do
+  before do
     stub_command("grep 'x:999' /etc/passwd").and_return(0)
   end
 end

@@ -111,7 +111,7 @@ describe 'octohost::nginx' do
     expect(chef_run).to create_remote_file('/usr/local/share/GeoIP/GeoLiteCity.dat.gz')
   end
 
-  before  do
+  before do
     #
   end
 end

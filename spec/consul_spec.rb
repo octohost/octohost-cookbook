@@ -34,7 +34,7 @@ describe 'octohost::consul' do
     expect(chef_run).to create_cookbook_file('/usr/bin/consulkv')
   end
 
-  before  do
+  before do
     #
   end
 end

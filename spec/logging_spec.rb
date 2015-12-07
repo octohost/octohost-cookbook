@@ -17,7 +17,7 @@ describe 'octohost::logging' do
     expect(chef_run).to create_cookbook_file('/etc/rsyslog.d/30-octohost.conf')
   end
 
-  before  do
+  before do
     #
   end
 end

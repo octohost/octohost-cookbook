@@ -9,7 +9,7 @@ describe 'octohost::vault' do
     expect(chef_run).to install_package('vault')
   end
 
-  before  do
+  before do
     #
   end
 end

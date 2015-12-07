@@ -33,7 +33,7 @@ describe 'octohost::firewall' do
     expect(chef_run).to allow_firewall_rule('docker0').with_interface('docker0')
   end
 
-  before  do
+  before do
     #
   end
 end

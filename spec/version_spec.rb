@@ -17,7 +17,7 @@ describe 'octohost::version' do
     expect(chef_run).to sync_git('/var/archive/octohost-cookbook').with(repository: 'https://github.com/octohost/octohost-cookbook.git')
   end
 
-  before  do
+  before do
     #
   end
 end

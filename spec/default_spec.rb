@@ -21,7 +21,7 @@ describe 'octohost::default' do
     expect(chef_run).to include_recipe('python::default')
   end
 
-  before  do
+  before do
     stub_command("grep 'x:999' /etc/passwd").and_return(0)
   end
 end

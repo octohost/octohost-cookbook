@@ -13,7 +13,7 @@ describe 'octohost::templates' do
     expect(chef_run).to create_cookbook_file('/etc/octohost/templates/upstart.conf')
   end
 
-  before  do
+  before do
     #
   end
 end

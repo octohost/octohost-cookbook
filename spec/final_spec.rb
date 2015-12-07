@@ -17,7 +17,7 @@ describe 'octohost::final' do
     expect(chef_run).to delete_file('/etc/docker/key.json')
   end
 
-  before  do
+  before do
     #
   end
 end
