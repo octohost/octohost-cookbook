@@ -20,34 +20,27 @@
 
 include_recipe 'firewall::default'
 
-package 'ufw' do
+firewall 'default' do
   action :install
-end
-
-firewall 'ufw' do
-  action :enable
 end
 
 firewall_rule 'ssh' do
   port     22
-  action   :allow
-  notifies :enable, 'firewall[ufw]'
+  command  :allow
 end
 
 firewall_rule 'http' do
   port     80
-  action   :allow
-  notifies :enable, 'firewall[ufw]'
+  command :allow
 end
 
 firewall_rule 'https' do
-  port     443
-  action   :allow
-  notifies :enable, 'firewall[ufw]'
+  port 443
+  command   :allow
 end
 
 firewall_rule 'docker0' do
   direction :in
   interface 'docker0'
-  action    :allow
+  command :allow
 end
