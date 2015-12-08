@@ -13,3 +13,7 @@ variable "ssh_key" {
 variable "octohost_name" {
   default = "octohost"
 }
+
+variable "keys_url" {
+  default = "https://github.com/your-username-goes-here.keys"
+}

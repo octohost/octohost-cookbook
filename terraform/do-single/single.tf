@@ -11,8 +11,15 @@ resource "digitalocean_droplet" "octohost" {
   ssh_keys = ["${var.ssh_key}"]
 
   provisioner "remote-exec" {
+    inline = [
+        "curl -s ${var.keys_url} > /tmp/ssh-keys"
+      ]
+  }
+
+  provisioner "remote-exec" {
     scripts = [
-      "../scripts/consul-bootstrap-do-single.sh"
+      "../scripts/consul-bootstrap-do-single.sh",
+      "../scripts/install-keys.sh"
     ]
   }
 }
