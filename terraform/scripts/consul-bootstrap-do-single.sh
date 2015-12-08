@@ -1,7 +1,6 @@
 #!/bin/bash
 source /etc/default/octohost
-PRIVATE_IP="$PRIVATE_IP"
-sudo service consul stop
+sudo service consul stop || true
 sudo rm -rf /var/cache/octohost/*
 CONSUL_KEY=$(consul keygen)
 HOSTNAME=$(hostname)
@@ -16,8 +15,8 @@ sudo cat > /tmp/consul.json <<EOF
   "server": true,
   "bootstrap": true,
   "ui_dir": "/var/lib/consul/ui",
-  "client_addr": "$PRIVATE_IP",
-  "advertise_addr": "$PRIVATE_IP"
+  "client_addr": "127.0.0.1",
+  "advertise_addr": "127.0.0.1"
 }
 EOF
 sudo mv -f /tmp/consul.json /etc/consul.d/default.json
