@@ -5,8 +5,8 @@ provider "digitalocean" {
 resource "digitalocean_droplet" "octohost" {
   image = "${var.image_id}"
   name = "${var.octohost_name}"
-  region = "nyc3"
-  size = "1gb"
+  region = "${var.region}"
+  size = "${var.size}"
   private_networking = true
   ssh_keys = ["${var.ssh_key}"]
 
