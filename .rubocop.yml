@@ -10,7 +10,7 @@ AllCops:
 Metrics/LineLength:
   Max: 250
 
-Style/SingleSpaceBeforeFirstArg:
+Style/SpaceBeforeFirstArg:
   Enabled: false
 
 Style/WordArray:

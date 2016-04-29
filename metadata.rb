@@ -6,6 +6,8 @@ license          'Apache 2.0'
 description      'Installs/configures octohost'
 version          '1.0.10'
 recipe           'octohost::default', 'Installs/configures octohost'
+issues_url       'https://github.com/octohost/octohost-cookbook/issues'
+source_url       'https://github.com/octohost/octohost-cookbook'
 
 depends 'chef-sugar'
 depends 'apt'
