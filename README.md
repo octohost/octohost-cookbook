@@ -1,3 +1,7 @@
+## DEPRECATED
+
+**NOTE:** This project is no longer actively maintained. Use [Dokku](https://github.com/dokku/dokku), [Deis Workflow](https://deis.com/) or [Kubernetes](https://github.com/kubernetes/kubernetes).
+
 Octohost Cookbook
 =================
 
